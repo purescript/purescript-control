@@ -16,6 +16,3 @@ lift2 f x y = f <$> x <*> y
 
 lift3 :: forall a b c d f. (Applicative f) => (a -> b -> c -> d) -> f a -> f b -> f c -> f d
 lift3 f x y z = f <$> x <*> y <*> z
-
-zipWithA :: forall m a b c. (Applicative m) => (a -> b -> m c) -> [a] -> [b] -> m [c]
-zipWithA f xs ys = sequence (zipWith f xs ys)
