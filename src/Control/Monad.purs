@@ -2,10 +2,6 @@ module Control.Monad where
 
 import Prelude
 import Data.Array
-import Data.Traversable
-
-zipWithA :: forall m a b c. (Applicative m) => (a -> b -> m c) -> [a] -> [b] -> m [c]
-zipWithA f xs ys = sequence (zipWith f xs ys)
 
 replicateM :: forall m a. (Monad m) => Number -> m a -> m [a]
 replicateM 0 _ = return []

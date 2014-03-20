@@ -16,6 +16,6 @@
     "js"
   ],
   "dependencies": {
-    "purescript-foldable-traversable": "*"
+    "purescript-arrays": "*"
   }
 }
