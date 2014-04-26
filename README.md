@@ -19,7 +19,6 @@
     lift5 :: forall a b c d e f g. (Apply f) => (a -> b -> c -> d -> e -> g) -> f a -> f b -> f c -> f d -> f e -> f g
 
 
-
 ## Module Control.Bind
 
 ### Values
@@ -35,7 +34,6 @@
     join :: forall a m. (Bind m) => m (m a) -> m a
 
 
-
 ## Module Control.Monad
 
 ### Values
@@ -47,6 +45,3 @@
     unless :: forall m. (Monad m) => Prim.Boolean -> m {  } -> m {  }
 
     when :: forall m. (Monad m) => Prim.Boolean -> m {  } -> m {  }
-
-
-
