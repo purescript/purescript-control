@@ -36,9 +36,20 @@
 
 ## Module Control.Monad
 
+### Type Classes
+
+    class (MonadZero m) <= MonadPlus m where
+      mplus :: forall a. m a -> m a -> m a
+
+    class (Monad m) <= MonadZero m where
+      mzero :: forall a. m a
+
+
 ### Values
 
     foldM :: forall m a b. (Monad m) => (a -> b -> m a) -> a -> [b] -> m a
+
+    guard :: forall m. (MonadPlus m) => Prim.Boolean -> m Unit
 
     replicateM :: forall m a. (Monad m) => Prim.Number -> m a -> m [a]
 
