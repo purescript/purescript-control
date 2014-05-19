@@ -1,5 +1,11 @@
 module Control.Monad where
 
+class (Monad m) <= MonadZero m where
+  mzero :: forall a. m a
+
+class (MonadZero m) <= MonadPlus m where
+  mplus :: forall a. m a -> m a -> m a
+
 replicateM :: forall m a. (Monad m) => Number -> m a -> m [a]
 replicateM 0 _ = return []
 replicateM n m = do
@@ -10,6 +16,10 @@ replicateM n m = do
 foldM :: forall m a b. (Monad m) => (a -> b -> m a) -> a -> [b] -> m a
 foldM _ a [] = return a
 foldM f a (b:bs) = f a b >>= \a' -> foldM f a' bs
+
+guard :: forall m. (MonadPlus m) => Boolean -> m Unit
+guard true = return unit
+guard false = mzero
 
 when :: forall m. (Monad m) => Boolean -> m {} -> m {}
 when true m = m
