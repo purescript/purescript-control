@@ -1,5 +1,11 @@
 module Control.Monad where
 
+class (Monad m) <= MonadZero m where
+  mzero :: forall a. m a
+
+class (MonadZero m) <= MonadPlus m where
+  mplus :: forall a. m a -> m a -> m a
+
 replicateM :: forall m a. (Monad m) => Number -> m a -> m [a]
 replicateM 0 _ = return []
 replicateM n m = do
