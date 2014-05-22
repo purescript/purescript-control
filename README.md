@@ -42,6 +42,6 @@
 
     replicateM :: forall m a. (Monad m) => Prim.Number -> m a -> m [a]
 
-    unless :: forall m. (Monad m) => Prim.Boolean -> m {  } -> m {  }
+    unless :: forall m. (Monad m) => Prim.Boolean -> m Unit -> m Unit
 
-    when :: forall m. (Monad m) => Prim.Boolean -> m {  } -> m {  }
+    when :: forall m. (Monad m) => Prim.Boolean -> m Unit -> m Unit
