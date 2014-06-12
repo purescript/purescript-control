@@ -29,7 +29,7 @@
 
     (>=>) :: forall a b c m. (Bind m) => (a -> m b) -> (b -> m c) -> a -> m c
 
-    ifM :: forall a m. (Bind m) => m Prim.Boolean -> m a -> m a -> m a
+    ifM :: forall a m. (Bind m) => m Boolean -> m a -> m a -> m a
 
     join :: forall a m. (Bind m) => m (m a) -> m a
 
@@ -40,8 +40,8 @@
 
     foldM :: forall m a b. (Monad m) => (a -> b -> m a) -> a -> [b] -> m a
 
-    replicateM :: forall m a. (Monad m) => Prim.Number -> m a -> m [a]
+    replicateM :: forall m a. (Monad m) => Number -> m a -> m [a]
 
-    unless :: forall m. (Monad m) => Prim.Boolean -> m {  } -> m {  }
+    unless :: forall m. (Monad m) => Boolean -> m {  } -> m {  }
 
-    when :: forall m. (Monad m) => Prim.Boolean -> m {  } -> m {  }
+    when :: forall m. (Monad m) => Boolean -> m {  } -> m {  }
