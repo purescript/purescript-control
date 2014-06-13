@@ -42,6 +42,6 @@
 
     replicateM :: forall m a. (Monad m) => Number -> m a -> m [a]
 
-    unless :: forall m. (Monad m) => Boolean -> m {  } -> m {  }
+    unless :: forall m. (Monad m) => Boolean -> m Unit -> m Unit
 
-    when :: forall m. (Monad m) => Boolean -> m {  } -> m {  }
+    when :: forall m. (Monad m) => Boolean -> m Unit -> m Unit
