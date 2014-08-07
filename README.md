@@ -69,6 +69,18 @@
     when :: forall m. (Monad m) => Boolean -> m Unit -> m Unit
 
 
+## Module Control.MonadPlus
+
+### Type Classes
+
+    class (Monad m, Alternative m) <= MonadPlus m where
+
+
+### Values
+
+    guard :: forall m. (MonadPlus m) => Boolean -> m Unit
+
+
 ## Module Control.Plus
 
 ### Type Classes
