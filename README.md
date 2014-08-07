@@ -64,7 +64,7 @@
       defer :: (Unit -> a) -> a
 
     class Lazy1 a where
-      defer1 :: forall t. (Unit -> a t) -> a t
+      defer1 :: forall b. (Unit -> a b) -> a b
 
 
 ## Module Control.Monad
