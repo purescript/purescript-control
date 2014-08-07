@@ -17,9 +17,9 @@
 
 ### Values
 
-    many :: forall f a. (Alternative f) => f a -> f [a]
+    many :: forall f a. (Alternative f, Lazy1 f) => f a -> f [a]
 
-    some :: forall f a. (Alternative f) => f a -> f [a]
+    some :: forall f a. (Alternative f, Lazy1 f) => f a -> f [a]
 
 
 ## Module Control.Apply
@@ -54,6 +54,17 @@
     ifM :: forall a m. (Bind m) => m Boolean -> m a -> m a -> m a
 
     join :: forall a m. (Bind m) => m (m a) -> m a
+
+
+## Module Control.Lazy
+
+### Type Classes
+
+    class Lazy a where
+      defer :: (Unit -> a) -> a
+
+    class Lazy1 a where
+      defer1 :: forall t. (Unit -> a t) -> a t
 
 
 ## Module Control.Monad
