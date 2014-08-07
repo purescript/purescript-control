@@ -1,5 +1,27 @@
 # Module Documentation
 
+## Module Control.Alt
+
+### Type Classes
+
+    class (Functor f) <= Alt f where
+      (<|>) :: forall a. f a -> f a -> f a
+
+
+## Module Control.Alternative
+
+### Type Classes
+
+    class (Applicative f, Plus f) <= Alternative f where
+
+
+### Values
+
+    many :: forall f a. (Alternative f) => f a -> f [a]
+
+    some :: forall f a. (Alternative f) => f a -> f [a]
+
+
 ## Module Control.Apply
 
 ### Values
@@ -45,3 +67,11 @@
     unless :: forall m. (Monad m) => Boolean -> m Unit -> m Unit
 
     when :: forall m. (Monad m) => Boolean -> m Unit -> m Unit
+
+
+## Module Control.Plus
+
+### Type Classes
+
+    class (Alt f) <= Plus f where
+      empty :: forall a. f a
