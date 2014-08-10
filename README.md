@@ -60,11 +60,23 @@
 
 ### Type Classes
 
-    class Lazy a where
-      defer :: (Unit -> a) -> a
+    class Lazy l where
+      defer :: (Unit -> l) -> l
 
-    class Lazy1 a where
-      defer1 :: forall b. (Unit -> a b) -> a b
+    class Lazy1 l where
+      defer1 :: forall a. (Unit -> l a) -> l a
+
+    class Lazy2 l where
+      defer2 :: forall a b. (Unit -> l a b) -> l a b
+
+
+### Values
+
+    fix :: forall l a. (Lazy l) => (l -> l) -> l
+
+    fix1 :: forall l a. (Lazy1 l) => (l a -> l a) -> l a
+
+    fix2 :: forall l a b. (Lazy2 l) => (l a b -> l a b) -> l a b
 
 
 ## Module Control.Monad
