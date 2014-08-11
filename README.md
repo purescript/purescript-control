@@ -1,5 +1,27 @@
 # Module Documentation
 
+## Module Control.Alt
+
+### Type Classes
+
+    class (Functor f) <= Alt f where
+      (<|>) :: forall a. f a -> f a -> f a
+
+
+## Module Control.Alternative
+
+### Type Classes
+
+    class (Applicative f, Plus f) <= Alternative f where
+
+
+### Values
+
+    many :: forall f a. (Alternative f, Lazy1 f) => f a -> f [a]
+
+    some :: forall f a. (Alternative f, Lazy1 f) => f a -> f [a]
+
+
 ## Module Control.Apply
 
 ### Values
@@ -34,6 +56,29 @@
     join :: forall a m. (Bind m) => m (m a) -> m a
 
 
+## Module Control.Lazy
+
+### Type Classes
+
+    class Lazy l where
+      defer :: (Unit -> l) -> l
+
+    class Lazy1 l where
+      defer1 :: forall a. (Unit -> l a) -> l a
+
+    class Lazy2 l where
+      defer2 :: forall a b. (Unit -> l a b) -> l a b
+
+
+### Values
+
+    fix :: forall l a. (Lazy l) => (l -> l) -> l
+
+    fix1 :: forall l a. (Lazy1 l) => (l a -> l a) -> l a
+
+    fix2 :: forall l a b. (Lazy2 l) => (l a b -> l a b) -> l a b
+
+
 ## Module Control.Monad
 
 ### Values
@@ -45,3 +90,23 @@
     unless :: forall m. (Monad m) => Boolean -> m Unit -> m Unit
 
     when :: forall m. (Monad m) => Boolean -> m Unit -> m Unit
+
+
+## Module Control.MonadPlus
+
+### Type Classes
+
+    class (Monad m, Alternative m) <= MonadPlus m where
+
+
+### Values
+
+    guard :: forall m. (MonadPlus m) => Boolean -> m Unit
+
+
+## Module Control.Plus
+
+### Type Classes
+
+    class (Alt f) <= Plus f where
+      empty :: forall a. f a
