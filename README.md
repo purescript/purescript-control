@@ -1,3 +1,9 @@
+# v0.2.0 Breaking change note
+
+If you are have a conflict between `<|>` in `Prelude` and `Control.Alt` please update your `psc` to 0.5.4.1.
+
+---
+
 # Module Documentation
 
 ## Module Control.Alt
