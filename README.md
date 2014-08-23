@@ -62,6 +62,38 @@ If you are have a conflict between `<|>` in `Prelude` and `Control.Alt` please u
     join :: forall a m. (Bind m) => m (m a) -> m a
 
 
+## Module Control.Comonad
+
+### Type Classes
+
+    class (Extend w) <= Comonad w where
+      extract :: forall a. w a -> a
+
+
+## Module Control.Extend
+
+### Type Classes
+
+    class (Functor w) <= Extend w where
+      (<<=) :: forall b a. (w a -> b) -> w a -> w b
+
+
+### Type Class Instances
+
+    instance extendArr :: (Semigroup w) => Extend (Prim.Function w)
+
+
+### Values
+
+    (=<=) :: forall b a w c. (Extend w) => (w b -> c) -> (w a -> b) -> w a -> c
+
+    (=>=) :: forall b a w c. (Extend w) => (w a -> b) -> (w b -> c) -> w a -> c
+
+    (=>>) :: forall b a w. (Extend w) => w a -> (w a -> b) -> w b
+
+    duplicate :: forall a w. (Extend w) => w a -> w (w a)
+
+
 ## Module Control.Lazy
 
 ### Type Classes
