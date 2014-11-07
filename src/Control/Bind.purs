@@ -1,12 +1,16 @@
 module Control.Bind where
 
   infixr 1 =<<
+  infixl 1 >>
   infixr 1 >=>
   infixr 1 <=<
-
+  
   (=<<) :: forall a b m. (Bind m) => (a -> m b) -> m a -> m b
   (=<<) f m = m >>= f
 
+  (>>) :: forall a b m. (Bind m) => m a -> m b -> m b
+  (>>) ma mb = ma >>= (\_ -> mb)
+  
   (>=>) :: forall a b c m. (Bind m) => (a -> m b) -> (b -> m c) -> a -> m c
   (>=>) f g a = f a >>= g
 
