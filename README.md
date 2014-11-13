@@ -1,9 +1,3 @@
-# v0.2.0 Breaking change note
-
-If you are have a conflict between `<|>` in `Prelude` and `Control.Alt` please update your `psc` to 0.5.4.1.
-
----
-
 # Module Documentation
 
 ## Module Control.Alt
@@ -92,6 +86,15 @@ If you are have a conflict between `<|>` in `Prelude` and `Control.Alt` please u
     (=>>) :: forall b a w. (Extend w) => w a -> (w a -> b) -> w b
 
     duplicate :: forall a w. (Extend w) => w a -> w (w a)
+
+
+## Module Control.Functor
+
+### Values
+
+    ($>) :: forall f a b. (Functor f) => f a -> b -> f b
+
+    (<$) :: forall f a b. (Functor f) => a -> f b -> f a
 
 
 ## Module Control.Lazy
