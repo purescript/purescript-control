@@ -1,11 +1,12 @@
 module Control.Monad where
 
 replicateM :: forall m a. (Monad m) => Number -> m a -> m [a]
-replicateM 0 _ = return []
-replicateM n m = do
-  a <- m
-  as <- replicateM (n - 1) m
-  return (a : as)
+replicateM n m
+  | n >= 1 = do
+    a <- m
+    as <- replicateM (n - 1) m
+    return (a : as)
+  | otherwise = return []
 
 foldM :: forall m a b. (Monad m) => (a -> b -> m a) -> a -> [b] -> m a
 foldM _ a [] = return a
