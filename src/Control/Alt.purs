@@ -12,6 +12,6 @@ infixl 3 <|>
 -- | - Associativity: `(x <|> y) <|> z == x <|> (y <|> z)`
 -- |
 -- | For example, the `Array` (`[]`) type is an instance of `Alt`, where
--- | (<|>) is defined to be concatenation.
+-- | `(<|>)` is defined to be concatenation.
 class (Functor f) <= Alt f where
   (<|>) :: forall a. f a -> f a -> f a
