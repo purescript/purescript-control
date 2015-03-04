@@ -19,7 +19,7 @@ String or Number.
 - Associativity: `(x <|> y) <|> z == x <|> (y <|> z)`
 
 For example, the `Array` (`[]`) type is an instance of `Alt`, where
-(<|>) is defined to be concatenation.
+`(<|>)` is defined to be concatenation.
 
 
 ## Module Control.Alternative
@@ -315,7 +315,7 @@ class (Alt f) <= Plus f where
   empty :: forall a. f a
 ```
 
-The `Plus` type class extends the `Alt` typeclass with a value that
+The `Plus` type class extends the `Alt` type class with a value that
 should be the left and right identity for `(<|>)`.
 
 `Plus` instances should satisfy the following laws:
