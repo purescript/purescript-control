@@ -10,7 +10,7 @@ infixl 3 <|>
 -- | `Alt` instances are required to satisfy the following laws:
 -- |
 -- | - Associativity: `(x <|> y) <|> z == x <|> (y <|> z)`
--- | - Distribution: `f <$> (x <|> y) == (f <$> x) <|> (f <$> y)`
+-- | - Distributivity: `f <$> (x <|> y) == (f <$> x) <|> (f <$> y)`
 -- |
 -- | For example, the `Array` (`[]`) type is an instance of `Alt`, where
 -- | `(<|>)` is defined to be concatenation.

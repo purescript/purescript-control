@@ -13,6 +13,5 @@ import Control.Alt
 -- | - Left identity: `empty <|> x == x`
 -- | - Right identity: `x <|> empty == x`
 -- | - ???: `f <$> empty == empty`
--- | - Left distribution: `(x <|> y) >>= f == (x >>= f) <|> (y >>= f)`
 class (Alt f) <= Plus f where
   empty :: forall a. f a

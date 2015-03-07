@@ -17,7 +17,7 @@ kind `* -> *`, like `Array` or `List`, rather than concrete types like
 `Alt` instances are required to satisfy the following laws:
 
 - Associativity: `(x <|> y) <|> z == x <|> (y <|> z)`
-- Distribution: `f <$> (x <|> y) == (f <$> x) <|> (f <$> y)`
+- Distributivity: `f <$> (x <|> y) == (f <$> x) <|> (f <$> y)`
 
 For example, the `Array` (`[]`) type is an instance of `Alt`, where
 `(<|>)` is defined to be concatenation.
@@ -298,6 +298,13 @@ unless :: forall m. (Monad m) => Boolean -> m Unit -> m Unit
 class (Monad m, Alternative m) <= MonadPlus m where
 ```
 
+The `MonadPlus` type class has none of its own functions; it just
+specifies that the type has both `Monad` and `Alternative` instances.
+
+Types which have `MonadPlus` instances should also satisfy the following
+law:
+
+- Left distributivity: `(x <|> y) >>= f == (x >>= f) <|> (y >>= f)`
 
 #### `guard`
 
@@ -327,4 +334,3 @@ kind `* -> *`, like `Array` or `List`, rather than concrete types like
 - Left identity: `empty <|> x == x`
 - Right identity: `x <|> empty == x`
 - ???: `f <$> empty == empty`
-- Left distribution: `(x <|> y) >>= f == (x >>= f) <|> (y >>= f)`
