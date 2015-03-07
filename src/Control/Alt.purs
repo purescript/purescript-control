@@ -7,9 +7,10 @@ infixl 3 <|>
 -- | kind `* -> *`, like `Array` or `List`, rather than concrete types like
 -- | `String` or `Number`.
 -- |
--- | `Alt` instances are required to satisfy the following law:
+-- | `Alt` instances are required to satisfy the following laws:
 -- |
 -- | - Associativity: `(x <|> y) <|> z == x <|> (y <|> z)`
+-- | - Distribution: `f <$> (x <|> y) == (f <$> x) <|> (f <$> y)`
 -- |
 -- | For example, the `Array` (`[]`) type is an instance of `Alt`, where
 -- | `(<|>)` is defined to be concatenation.

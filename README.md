@@ -14,9 +14,10 @@ It is similar to `Semigroup`, except that it applies to types of
 kind `* -> *`, like `Array` or `List`, rather than concrete types like
 `String` or `Number`.
 
-`Alt` instances are required to satisfy the following law:
+`Alt` instances are required to satisfy the following laws:
 
 - Associativity: `(x <|> y) <|> z == x <|> (y <|> z)`
+- Distribution: `f <$> (x <|> y) == (f <$> x) <|> (f <$> y)`
 
 For example, the `Array` (`[]`) type is an instance of `Alt`, where
 `(<|>)` is defined to be concatenation.
@@ -318,10 +319,12 @@ class (Alt f) <= Plus f where
 The `Plus` type class extends the `Alt` type class with a value that
 should be the left and right identity for `(<|>)`.
 It is similar to `Monoid`, except that it applies to types of
-kind (* -> *), like `Array` or `List`, rather than concrete types like
+kind `* -> *`, like `Array` or `List`, rather than concrete types like
 `String` or `Number`.
 
 `Plus` instances should satisfy the following laws:
 
 - Left identity: `empty <|> x == x`
 - Right identity: `x <|> empty == x`
+- ???: `f <$> empty == empty`
+- Left distribution: `(x <|> y) >>= f == (x >>= f) <|> (y >>= f)`
