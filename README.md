@@ -31,6 +31,14 @@ For example, the `Array` (`[]`) type is an instance of `Alt`, where
 class (Applicative f, Plus f) <= Alternative f where
 ```
 
+The `Alternative` type class has no members of its own; it just specifies
+that the type has both `Applicative` and `Plus` instances.
+
+Types which have `Alternative` instances should also satisfy the following
+laws:
+
+- Distributivity: `(f <|> g) <*> x == (f <*> x) <|> (g <*> x)`
+- Annihilation: `empty <*> f = empty`
 
 #### `some`
 
@@ -298,13 +306,14 @@ unless :: forall m. (Monad m) => Boolean -> m Unit -> m Unit
 class (Monad m, Alternative m) <= MonadPlus m where
 ```
 
-The `MonadPlus` type class has none of its own functions; it just
-specifies that the type has both `Monad` and `Alternative` instances.
+The `MonadPlus` type class has no members of its own; it just specifies
+that the type has both `Monad` and `Alternative` instances.
 
 Types which have `MonadPlus` instances should also satisfy the following
-law:
+laws:
 
-- Left distributivity: `(x <|> y) >>= f == (x >>= f) <|> (y >>= f)`
+- Distributivity: `(x <|> y) >>= f == (x >>= f) <|> (y >>= f)`
+- Annihilation: `empty >>= f = empty`
 
 #### `guard`
 
@@ -333,4 +342,4 @@ kind `* -> *`, like `Array` or `List`, rather than concrete types like
 
 - Left identity: `empty <|> x == x`
 - Right identity: `x <|> empty == x`
-- ???: `f <$> empty == empty`
+- Annihilation: `f <$> empty == empty`

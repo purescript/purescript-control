@@ -12,6 +12,6 @@ import Control.Alt
 -- |
 -- | - Left identity: `empty <|> x == x`
 -- | - Right identity: `x <|> empty == x`
--- | - ???: `f <$> empty == empty`
+-- | - Annihilation: `f <$> empty == empty`
 class (Alt f) <= Plus f where
   empty :: forall a. f a
