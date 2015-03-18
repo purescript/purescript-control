@@ -9,9 +9,9 @@ class (Functor f) <= Alt f where
   (<|>) :: forall a. f a -> f a -> f a
 ```
 
-The `Alt` type class identifies an associative operation on a type.
-It is similar to `Semigroup`, except that it applies to types of
-kind `* -> *`, like `Array` or `List`, rather than concrete types like
+The `Alt` type class identifies an associative operation on a type
+constructor.  It is similar to `Semigroup`, except that it applies to
+types of kind `* -> *`, like `Array` or `List`, rather than concrete types
 `String` or `Number`.
 
 `Alt` instances are required to satisfy the following laws:
@@ -32,7 +32,7 @@ class (Applicative f, Plus f) <= Alternative f where
 ```
 
 The `Alternative` type class has no members of its own; it just specifies
-that the type has both `Applicative` and `Plus` instances.
+that the type constructor has both `Applicative` and `Plus` instances.
 
 Types which have `Alternative` instances should also satisfy the following
 laws:

@@ -2,9 +2,9 @@ module Control.Alt where
 
 infixl 3 <|>
 
--- | The `Alt` type class identifies an associative operation on a type.
--- | It is similar to `Semigroup`, except that it applies to types of
--- | kind `* -> *`, like `Array` or `List`, rather than concrete types like
+-- | The `Alt` type class identifies an associative operation on a type
+-- | constructor.  It is similar to `Semigroup`, except that it applies to
+-- | types of kind `* -> *`, like `Array` or `List`, rather than concrete types
 -- | `String` or `Number`.
 -- |
 -- | `Alt` instances are required to satisfy the following laws:

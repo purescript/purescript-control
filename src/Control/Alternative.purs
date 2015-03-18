@@ -5,7 +5,7 @@ import Control.Lazy
 import Control.Plus
 
 -- | The `Alternative` type class has no members of its own; it just specifies
--- | that the type has both `Applicative` and `Plus` instances.
+-- | that the type constructor has both `Applicative` and `Plus` instances.
 -- |
 -- | Types which have `Alternative` instances should also satisfy the following
 -- | laws:
