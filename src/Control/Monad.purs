@@ -19,6 +19,12 @@ unless :: forall m. (Monad m) => Boolean -> m Unit -> m Unit
 unless false m = m
 unless true _ = return unit
 
+-- | Filter where the predicate returns a monadic Boolean. For example: 
+-- |
+-- | ```purescript
+-- | powerSet :: forall a. [a] -> [[a]]
+-- | powerSet = filterM (const [true, false])
+-- | ```
 filterM :: forall a m. (Monad m) => (a -> m Boolean) -> [a] -> m [a]
 filterM _ [] = return []
 filterM p (x:xs) = do
