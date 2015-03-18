@@ -18,3 +18,12 @@ when false _ = return unit
 unless :: forall m. (Monad m) => Boolean -> m Unit -> m Unit
 unless false m = m
 unless true _ = return unit
+
+filterM :: forall a m. (Monad m) => (a -> m Boolean) -> [a] -> m [a]
+filterM _ [] = return []
+filterM p (x:xs) = do
+  b <- p x
+  xs' <- filterM p xs
+  return $ if b
+           then x : xs'
+           else xs'

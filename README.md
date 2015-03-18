@@ -297,6 +297,13 @@ unless :: forall m. (Monad m) => Boolean -> m Unit -> m Unit
 ```
 
 
+#### `filterM`
+
+``` purescript
+filterM :: forall a m. (Monad m) => (a -> m Boolean) -> [a] -> m [a]
+```
+
+
 
 ## Module Control.MonadPlus
 
