@@ -297,6 +297,19 @@ unless :: forall m. (Monad m) => Boolean -> m Unit -> m Unit
 ```
 
 
+#### `filterM`
+
+``` purescript
+filterM :: forall a m. (Monad m) => (a -> m Boolean) -> [a] -> m [a]
+```
+
+Filter where the predicate returns a monadic Boolean. For example: 
+
+```purescript
+powerSet :: forall a. [a] -> [[a]]
+powerSet = filterM (const [true, false])
+```
+
 
 ## Module Control.MonadPlus
 
