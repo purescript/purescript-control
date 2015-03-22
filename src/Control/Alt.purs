@@ -1,4 +1,4 @@
--- | This module defines the `Alt` type class
+-- | This module defines the `Alt` type class.
 
 module Control.Alt where
 

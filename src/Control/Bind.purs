@@ -6,11 +6,11 @@ module Control.Bind where
   infixr 1 >=>
   infixr 1 <=<
 
-  -- | A version of `(>>=)` with its arguments reversed
+  -- | A version of `(>>=)` with its arguments flipped.
   (=<<) :: forall a b m. (Bind m) => (a -> m b) -> m a -> m b
   (=<<) f m = m >>= f
 
-  -- | Forwards Kleisli composition
+  -- | Forwards Kleisli composition.
   -- |
   -- | For example:
   -- | 
@@ -22,7 +22,7 @@ module Control.Bind where
   (>=>) :: forall a b c m. (Bind m) => (a -> m b) -> (b -> m c) -> a -> m c
   (>=>) f g a = f a >>= g
 
-  -- | Backwards Kleisli composition
+  -- | Backwards Kleisli composition.
   (<=<) :: forall a b c m. (Bind m) => (b -> m c) -> (a -> m b) -> a -> m c
   (<=<) f g a = f =<< g a
 

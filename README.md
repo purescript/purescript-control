@@ -3,7 +3,7 @@
 ## Module Control.Alt
 
 
-This module defines the `Alt` type class
+This module defines the `Alt` type class.
 
 #### `Alt`
 
@@ -140,7 +140,7 @@ This module defines helper functions for working with `Bind` instances.
 (=<<) :: forall a b m. (Bind m) => (a -> m b) -> m a -> m b
 ```
 
-A version of `(>>=)` with its arguments reversed
+A version of `(>>=)` with its arguments flipped.
 
 #### `(>=>)`
 
@@ -148,7 +148,7 @@ A version of `(>>=)` with its arguments reversed
 (>=>) :: forall a b c m. (Bind m) => (a -> m b) -> (b -> m c) -> a -> m c
 ```
 
-Forwards Kleisli composition
+Forwards Kleisli composition.
 
 For example:
 
@@ -164,7 +164,7 @@ third = tail >=> tail >=> head
 (<=<) :: forall a b c m. (Bind m) => (b -> m c) -> (a -> m b) -> a -> m c
 ```
 
-Backwards Kleisli composition
+Backwards Kleisli composition.
 
 #### `join`
 
@@ -194,7 +194,7 @@ main = ifM ((< 0.5) <$> random)
 ## Module Control.Comonad
 
 
-This module defines the `Comonad` type class
+This module defines the `Comonad` type class.
 
 #### `Comonad`
 
@@ -218,7 +218,7 @@ Laws:
 ## Module Control.Extend
 
 
-This module defines the `Extend` type class and associated helper functions
+This module defines the `Extend` type class and associated helper functions.
 
 #### `Extend`
 
@@ -251,7 +251,7 @@ instance extendArr :: (Semigroup w) => Extend (Prim.Function w)
 (=>>) :: forall b a w. (Extend w) => w a -> (w a -> b) -> w b
 ```
 
-A version of `(<<=)` with its arguments reversed
+A version of `(<<=)` with its arguments flipped.
 
 #### `(=>=)`
 
@@ -259,7 +259,7 @@ A version of `(<<=)` with its arguments reversed
 (=>=) :: forall b a w c. (Extend w) => (w a -> b) -> (w b -> c) -> w a -> c
 ```
 
-Forwards co-Kleisli composition
+Forwards co-Kleisli composition.
 
 #### `(=<=)`
 
@@ -267,7 +267,7 @@ Forwards co-Kleisli composition
 (=<=) :: forall b a w c. (Extend w) => (w b -> c) -> (w a -> b) -> w a -> c
 ```
 
-Backwards co-Kleisli composition
+Backwards co-Kleisli composition.
 
 #### `duplicate`
 
@@ -275,15 +275,15 @@ Backwards co-Kleisli composition
 duplicate :: forall a w. (Extend w) => w a -> w (w a)
 ```
 
-Duplicate a comonadic context
+Duplicate a comonadic context.
 
-`duplicate` is dual to `join`.
+`duplicate` is dual to `Control.Bind.join`.
 
 
 ## Module Control.Functor
 
 
-This module defines helper functions for working with `Functor` instances
+This module defines helper functions for working with `Functor` instances.
 
 #### `(<$)`
 
@@ -291,7 +291,7 @@ This module defines helper functions for working with `Functor` instances
 (<$) :: forall f a b. (Functor f) => a -> f b -> f a
 ```
 
-Ignore the return value of a computation, using the specified return value instead
+Ignore the return value of a computation, using the specified return value instead.
 
 #### `($>)`
 
@@ -299,7 +299,7 @@ Ignore the return value of a computation, using the specified return value inste
 ($>) :: forall f a b. (Functor f) => f a -> b -> f b
 ```
 
-A version of `(<$)` with its arguments flipped
+A version of `(<$)` with its arguments flipped.
 
 
 ## Module Control.Lazy
@@ -328,7 +328,7 @@ class Lazy1 l where
   defer1 :: forall a. (Unit -> l a) -> l a
 ```
 
-A version of `Lazy` for type constructors of one type argument
+A version of `Lazy` for type constructors of one type argument.
 
 #### `Lazy2`
 
@@ -337,7 +337,7 @@ class Lazy2 l where
   defer2 :: forall a b. (Unit -> l a b) -> l a b
 ```
 
-A version of `Lazy` for type constructors of two type arguments
+A version of `Lazy` for type constructors of two type arguments.
 
 #### `fix`
 
@@ -355,7 +355,7 @@ The `Lazy` instance allows us to generate the result lazily.
 fix1 :: forall l a. (Lazy1 l) => (l a -> l a) -> l a
 ```
 
-A version of `fix` for type constructors of one type argument
+A version of `fix` for type constructors of one type argument.
 
 #### `fix2`
 
@@ -363,13 +363,13 @@ A version of `fix` for type constructors of one type argument
 fix2 :: forall l a b. (Lazy2 l) => (l a b -> l a b) -> l a b
 ```
 
-A version of `fix` for type constructors of two type arguments
+A version of `fix` for type constructors of two type arguments.
 
 
 ## Module Control.Monad
 
 
-This module defines helper functions for working with `Monad` instances
+This module defines helper functions for working with `Monad` instances.
 
 #### `replicateM`
 
@@ -377,7 +377,7 @@ This module defines helper functions for working with `Monad` instances
 replicateM :: forall m a. (Monad m) => Number -> m a -> m [a]
 ```
 
-Perform a monadic action `n` times collecting all of the results
+Perform a monadic action `n` times collecting all of the results.
 
 #### `foldM`
 
@@ -385,7 +385,7 @@ Perform a monadic action `n` times collecting all of the results
 foldM :: forall m a b. (Monad m) => (a -> b -> m a) -> a -> [b] -> m a
 ```
 
-Perform a fold using a monadic step function
+Perform a fold using a monadic step function.
 
 #### `when`
 
@@ -476,6 +476,7 @@ class (Alt f) <= Plus f where
 
 The `Plus` type class extends the `Alt` type class with a value that
 should be the left and right identity for `(<|>)`.
+
 It is similar to `Monoid`, except that it applies to types of
 kind `* -> *`, like `Array` or `List`, rather than concrete types like
 `String` or `Number`.

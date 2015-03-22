@@ -6,6 +6,7 @@ import Control.Alt
 
 -- | The `Plus` type class extends the `Alt` type class with a value that
 -- | should be the left and right identity for `(<|>)`.
+-- |
 -- | It is similar to `Monoid`, except that it applies to types of
 -- | kind `* -> *`, like `Array` or `List`, rather than concrete types like
 -- | `String` or `Number`.

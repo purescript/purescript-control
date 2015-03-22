@@ -1,4 +1,4 @@
--- | This module defines the `Comonad` type class
+-- | This module defines the `Comonad` type class.
 
 module Control.Comonad where
 

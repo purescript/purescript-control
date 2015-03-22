@@ -1,4 +1,4 @@
--- | This module defines the `Extend` type class and associated helper functions
+-- | This module defines the `Extend` type class and associated helper functions.
 
 module Control.Extend where
 
@@ -23,20 +23,20 @@ class (Functor w) <= Extend w where
 instance extendArr :: (Semigroup w) => Extend ((->) w) where
   (<<=) f g w = f \w' -> g (w <> w')
 
--- | A version of `(<<=)` with its arguments reversed
+-- | A version of `(<<=)` with its arguments flipped.
 (=>>) :: forall b a w. (Extend w) => w a -> (w a -> b) -> w b
 (=>>) w f = f <<= w
 
--- | Forwards co-Kleisli composition
+-- | Forwards co-Kleisli composition.
 (=>=) :: forall b a w c. (Extend w) => (w a -> b) -> (w b -> c) -> w a -> c
 (=>=) f g w = g (f <<= w)
 
--- | Backwards co-Kleisli composition
+-- | Backwards co-Kleisli composition.
 (=<=) :: forall b a w c. (Extend w) => (w b -> c) -> (w a -> b) -> w a -> c
 (=<=) f g w = f (g <<= w)
 
--- | Duplicate a comonadic context
+-- | Duplicate a comonadic context.
 -- |
--- | `duplicate` is dual to `join`.
+-- | `duplicate` is dual to `Control.Bind.join`.
 duplicate :: forall a w. (Extend w) => w a -> w (w a)
 duplicate w = id <<= w
