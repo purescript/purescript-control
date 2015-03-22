@@ -11,6 +11,9 @@ infixr 1 =<=
 -- | which extends a local context-dependent computation to
 -- | a global computation.
 -- |
+-- | `Extend` is the dual of `Bind`, and `(<<=)` is the dual of 
+-- | `(>>=)`.
+-- |
 -- | Laws:
 -- |
 -- | - Associativity: `extend f <<< extend g = extend (f <<< extend g)`
@@ -33,5 +36,7 @@ instance extendArr :: (Semigroup w) => Extend ((->) w) where
 (=<=) f g w = f (g <<= w)
 
 -- | Duplicate a comonadic context
+-- |
+-- | `duplicate` is dual to `join`.
 duplicate :: forall a w. (Extend w) => w a -> w (w a)
 duplicate w = id <<= w

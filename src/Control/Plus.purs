@@ -1,3 +1,5 @@
+-- | This module defines the `Plus` type class.
+
 module Control.Plus where
 
 import Control.Alt
