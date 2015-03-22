@@ -1,3 +1,5 @@
+-- | This module defines the `MonadPlus` type class.
+
 module Control.MonadPlus where
 
 import Control.Alternative
@@ -13,6 +15,21 @@ import Control.Plus
 -- | - Annihilation: `empty >>= f = empty`
 class (Monad m, Alternative m) <= MonadPlus m
 
+-- | Fail using `Plus` if a condition does not hold, or
+-- | succeed using `Monad` if it does.
+-- |
+-- | For example:
+-- |
+-- | ```purescript
+-- | import Data.Array
+-- | 
+-- | factors :: Number -> [Number]
+-- | factors n = do
+-- |   a <- 1 .. n
+-- |   b <- 1 .. a
+-- |   guard $ a * b == n
+-- |   return a
+-- | ```
 guard :: forall m. (MonadPlus m) => Boolean -> m Unit
 guard true = return unit
 guard false = empty
