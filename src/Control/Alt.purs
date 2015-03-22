@@ -1,3 +1,5 @@
+-- | This module defines the `Alt` type class
+
 module Control.Alt where
 
 infixl 3 <|>
