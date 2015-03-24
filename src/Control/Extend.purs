@@ -35,6 +35,10 @@ instance extendArr :: (Semigroup w) => Extend ((->) w) where
 (=<=) :: forall b a w c. (Extend w) => (w b -> c) -> (w a -> b) -> w a -> c
 (=<=) f g w = f (g <<= w)
 
+-- | An alias for `(<<=)`.
+extend :: forall b a w. (Extend w) => (w a -> b) -> w a -> w b
+extend = (<<=)
+
 -- | Duplicate a comonadic context.
 -- |
 -- | `duplicate` is dual to `Control.Bind.join`.
