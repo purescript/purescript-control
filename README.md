@@ -269,6 +269,14 @@ Forwards co-Kleisli composition.
 
 Backwards co-Kleisli composition.
 
+#### `extend`
+
+``` purescript
+extend :: forall b a w. (Extend w) => (w a -> b) -> w a -> w b
+```
+
+An alias for `(<<=)`.
+
 #### `duplicate`
 
 ``` purescript
