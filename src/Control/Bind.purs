@@ -13,10 +13,10 @@ module Control.Bind where
   -- | Forwards Kleisli composition.
   -- |
   -- | For example:
-  -- | 
+  -- |
   -- | ```purescript
   -- | import Data.Array (head, tail)
-  -- | 
+  -- |
   -- | third = tail >=> tail >=> head
   -- | ```
   (>=>) :: forall a b c m. (Bind m) => (a -> m b) -> (b -> m c) -> a -> m c
@@ -27,11 +27,11 @@ module Control.Bind where
   (<=<) f g a = f =<< g a
 
   -- | Collapse two applications of a monadic type constructor into one.
-  join :: forall a m. (Bind m) => m (m a) -> m a
-  join m = m >>= id
+  joinM :: forall a m. (Bind m) => m (m a) -> m a
+  joinM m = m >>= id
 
-  -- | Execute a monadic action if a condition holds. 
-  -- | 
+  -- | Execute a monadic action if a condition holds.
+  -- |
   -- | For example:
   -- |
   -- | ```purescript
