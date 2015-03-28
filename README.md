@@ -166,10 +166,10 @@ third = tail >=> tail >=> head
 
 Backwards Kleisli composition.
 
-#### `join`
+#### `joinM`
 
 ``` purescript
-join :: forall a m. (Bind m) => m (m a) -> m a
+joinM :: forall a m. (Bind m) => m (m a) -> m a
 ```
 
 Collapse two applications of a monadic type constructor into one.
@@ -180,7 +180,7 @@ Collapse two applications of a monadic type constructor into one.
 ifM :: forall a m. (Bind m) => m Boolean -> m a -> m a -> m a
 ```
 
-Execute a monadic action if a condition holds. 
+Execute a monadic action if a condition holds.
 
 For example:
 
@@ -494,3 +494,6 @@ kind `* -> *`, like `Array` or `List`, rather than concrete types like
 - Left identity: `empty <|> x == x`
 - Right identity: `x <|> empty == x`
 - Annihilation: `f <$> empty == empty`
+
+
+
