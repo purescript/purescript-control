@@ -4,11 +4,12 @@ module Control.Monad where
 
 -- | Perform a monadic action `n` times collecting all of the results.
 replicateM :: forall m a. (Monad m) => Number -> m a -> m [a]
-replicateM 0 _ = return []
-replicateM n m = do
-  a <- m
-  as <- replicateM (n - 1) m
-  return (a : as)
+replicateM n m
+  | n >= 1 = do
+    a <- m
+    as <- replicateM (n - 1) m
+    return (a : as)
+  | otherwise = return []
 
 -- | Perform a fold using a monadic step function.
 foldM :: forall m a b. (Monad m) => (a -> b -> m a) -> a -> [b] -> m a
