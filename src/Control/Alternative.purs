@@ -21,14 +21,14 @@ class (Applicative f, Plus f) <= Alternative f
 -- |
 -- | The `Lazy` constraint is used to generate the result lazily, to ensure
 -- | termination.
-some :: forall f a. (Alternative f, Lazy1 f) => f a -> f [a]
-some v = (:) <$> v <*> defer1 (\_ -> many v)
+some :: forall f a. (Alternative f, Lazy (f [a])) => f a -> f [a]
+some v = (:) <$> v <*> defer (\_ -> many v)
 
 -- | Attempt a computation multiple times, returning as many successful results
 -- | as possible (possibly zero).
 -- |
 -- | The `Lazy` constraint is used to generate the result lazily, to ensure
 -- | termination.
-many :: forall f a. (Alternative f, Lazy1 f) => f a -> f [a]
+many :: forall f a. (Alternative f, Lazy (f [a])) => f a -> f [a]
 many v = some v <|> pure []
 

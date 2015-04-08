@@ -50,7 +50,7 @@ laws:
 #### `some`
 
 ``` purescript
-some :: forall f a. (Alternative f, Lazy1 f) => f a -> f [a]
+some :: forall f a. (Alternative f, Lazy (f [a])) => f a -> f [a]
 ```
 
 Attempt a computation multiple times, requiring at least one success.
@@ -61,7 +61,7 @@ termination.
 #### `many`
 
 ``` purescript
-many :: forall f a. (Alternative f, Lazy1 f) => f a -> f [a]
+many :: forall f a. (Alternative f, Lazy (f [a])) => f a -> f [a]
 ```
 
 Attempt a computation multiple times, returning as many successful results
@@ -329,24 +329,6 @@ to be _deferred_.
 Usually, this means that a type contains a function arrow which can
 be used to delay evaluation.
 
-#### `Lazy1`
-
-``` purescript
-class Lazy1 l where
-  defer1 :: forall a. (Unit -> l a) -> l a
-```
-
-A version of `Lazy` for type constructors of one type argument.
-
-#### `Lazy2`
-
-``` purescript
-class Lazy2 l where
-  defer2 :: forall a b. (Unit -> l a b) -> l a b
-```
-
-A version of `Lazy` for type constructors of two type arguments.
-
 #### `fix`
 
 ``` purescript
@@ -357,22 +339,6 @@ fix :: forall l a. (Lazy l) => (l -> l) -> l
 
 The `Lazy` instance allows us to generate the result lazily.
 
-#### `fix1`
-
-``` purescript
-fix1 :: forall l a. (Lazy1 l) => (l a -> l a) -> l a
-```
-
-A version of `fix` for type constructors of one type argument.
-
-#### `fix2`
-
-``` purescript
-fix2 :: forall l a b. (Lazy2 l) => (l a b -> l a b) -> l a b
-```
-
-A version of `fix` for type constructors of two type arguments.
-
 
 ## Module Control.Monad
 
@@ -382,7 +348,7 @@ This module defines helper functions for working with `Monad` instances.
 #### `replicateM`
 
 ``` purescript
-replicateM :: forall m a. (Monad m) => Number -> m a -> m [a]
+replicateM :: forall m a. (Monad m) => Int -> m a -> m [a]
 ```
 
 Perform a monadic action `n` times collecting all of the results.
@@ -419,7 +385,7 @@ filterM :: forall a m. (Monad m) => (a -> m Boolean) -> [a] -> m [a]
 
 Filter where the predicate returns a monadic `Boolean`.
 
-For example: 
+For example:
 
 ```purescript
 powerSet :: forall a. [a] -> [[a]]
