@@ -2,13 +2,14 @@
 
 module Control.Monad where
 
+import Data.Int (Int())
+
 -- | Perform a monadic action `n` times collecting all of the results.
-replicateM :: forall m a. (Monad m) => Number -> m a -> m [a]
-replicateM 0 _ = return []
-replicateM n m = do
-  a <- m
-  as <- replicateM (n - 1) m
-  return (a : as)
+replicateM :: forall m a. (Monad m) => Int -> m a -> m [a]
+replicateM n m | n == zero = return []
+               | otherwise = do a <- m
+                                as <- replicateM (n - one) m
+                                return (a : as)
 
 -- | Perform a fold using a monadic step function.
 foldM :: forall m a b. (Monad m) => (a -> b -> m a) -> a -> [b] -> m a
@@ -27,7 +28,7 @@ unless true _ = return unit
 
 -- | Filter where the predicate returns a monadic `Boolean`.
 -- |
--- | For example: 
+-- | For example:
 -- |
 -- | ```purescript
 -- | powerSet :: forall a. [a] -> [[a]]
