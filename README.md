@@ -16,4 +16,23 @@ bower install purescript-control
 
 ## Module documentation
 
-[`docs/MODULE.md`](docs/MODULE.md)
+### Functor/Applicative
+- [Control.Functor](docs/Control.Functor.md)
+- [Control.Apply](docs/Control.Apply.md)
+
+### Monad
+- [Control.Bind](docs/Control.Bind.md)
+- [Control.Monad](docs/Control.Monad.md)
+
+### Alternative/MonadPlus
+- [Control.Alt](docs/Control.Alt.md)
+- [Control.Plus](docs/Control.Plus.md)
+- [Control.Alternative](docs/Control.Alternative.md)
+- [Control.MonadPlus](docs/Control.MonadPlus.md)
+
+### Comonads
+- [Control.Extend](docs/Control.Extend.md)
+- [Control.Comonad](docs/Control.Comonad.md)
+
+### Lazy
+- [Control.Lazy](docs/Control.Lazy.md)
