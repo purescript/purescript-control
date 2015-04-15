@@ -6,7 +6,7 @@ import Data.Int (Int())
 
 -- | Perform a monadic action `n` times collecting all of the results.
 replicateM :: forall m a. (Monad m) => Int -> m a -> m [a]
-replicateM n m | n == zero = return []
+replicateM n m | n < one   = return []
                | otherwise = do a <- m
                                 as <- replicateM (n - one) m
                                 return (a : as)
