@@ -27,15 +27,17 @@ var docTasks = [];
 var docTask = function(name) {
   var taskName = "docs-" + name.toLowerCase();
   gulp.task(taskName, function () {
-    return gulp.src("src/Control/" + name + ".purs")
+    return gulp.src("src/" + name.replace(/\./g, "/") + ".purs")
       .pipe(plumber())
       .pipe(purescript.pscDocs())
-      .pipe(gulp.dest("docs/Control." + name + ".md"));
+      .pipe(gulp.dest("docs/" + name + ".md"));
   });
   docTasks.push(taskName);
 };
 
-["Alt", "Alternative", "Apply", "Bind", "Comonad", "Extend", "Functor", "Lazy", "Monad", "MonadPlus", "Plus"].forEach(docTask);
+["Control.Alt", "Control.Alternative", "Control.Apply", "Control.Bind",
+ "Control.Comonad", "Control.Extend", "Control.Functor", "Control.Lazy",
+ "Control.Monad", "Control.MonadPlus", "Control.Plus"].forEach(docTask);
 
 gulp.task("docs", docTasks);
 
