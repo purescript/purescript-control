@@ -18,10 +18,14 @@ infixr 1 =<=
 -- |
 -- | - Associativity: `extend f <<< extend g = extend (f <<< extend g)`
 class (Functor w) <= Extend w where
-  (<<=) :: forall b a. (w a -> b) -> w a -> w b
+  extend :: forall b a. (w a -> b) -> w a -> w b
 
 instance extendArr :: (Semigroup w) => Extend ((->) w) where
-  (<<=) f g w = f \w' -> g (w <> w')
+  extend f g w = f \w' -> g (w <> w')
+
+-- | An infix version of `extend`
+(<<=) :: forall w a b. (Extend w) => (w a -> b) -> w a -> w b
+(<<=) = extend
 
 -- | A version of `(<<=)` with its arguments flipped.
 (=>>) :: forall b a w. (Extend w) => w a -> (w a -> b) -> w b
@@ -35,12 +39,8 @@ instance extendArr :: (Semigroup w) => Extend ((->) w) where
 (=<=) :: forall b a w c. (Extend w) => (w b -> c) -> (w a -> b) -> w a -> c
 (=<=) f g w = f (g <<= w)
 
--- | An alias for `(<<=)`.
-extend :: forall b a w. (Extend w) => (w a -> b) -> w a -> w b
-extend = (<<=)
-
 -- | Duplicate a comonadic context.
 -- |
 -- | `duplicate` is dual to `Control.Bind.join`.
 duplicate :: forall a w. (Extend w) => w a -> w (w a)
-duplicate w = id <<= w
+duplicate = extend id
