@@ -9,7 +9,7 @@ This module defines the `Extend` type class and associated helper functions.
 
 ``` purescript
 class (Functor w) <= Extend w where
-  (<<=) :: forall b a. (w a -> b) -> w a -> w b
+  extend :: forall b a. (w a -> b) -> w a -> w b
 ```
 
 The `Extend` class defines the extension operator `(<<=)`
@@ -29,6 +29,14 @@ Laws:
 instance extendArr :: (Semigroup w) => Extend (Prim.Function w)
 ```
 
+
+#### `(<<=)`
+
+``` purescript
+(<<=) :: forall w a b. (Extend w) => (w a -> b) -> w a -> w b
+```
+
+An infix version of `extend`
 
 #### `(=>>)`
 
@@ -53,14 +61,6 @@ Forwards co-Kleisli composition.
 ```
 
 Backwards co-Kleisli composition.
-
-#### `extend`
-
-``` purescript
-extend :: forall b a w. (Extend w) => (w a -> b) -> w a -> w b
-```
-
-An alias for `(<<=)`.
 
 #### `duplicate`
 
