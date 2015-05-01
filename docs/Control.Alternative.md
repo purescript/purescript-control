@@ -21,28 +21,5 @@ laws:
 - Distributivity: `(f <|> g) <*> x == (f <*> x) <|> (g <*> x)`
 - Annihilation: `empty <*> f = empty`
 
-#### `some`
-
-``` purescript
-some :: forall f a. (Alternative f, Lazy (f [a])) => f a -> f [a]
-```
-
-Attempt a computation multiple times, requiring at least one success.
-
-The `Lazy` constraint is used to generate the result lazily, to ensure
-termination.
-
-#### `many`
-
-``` purescript
-many :: forall f a. (Alternative f, Lazy (f [a])) => f a -> f [a]
-```
-
-Attempt a computation multiple times, returning as many successful results
-as possible (possibly zero).
-
-The `Lazy` constraint is used to generate the result lazily, to ensure
-termination.
-
 
 

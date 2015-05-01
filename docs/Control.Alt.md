@@ -9,7 +9,7 @@ This module defines the `Alt` type class.
 
 ``` purescript
 class (Functor f) <= Alt f where
-  (<|>) :: forall a. f a -> f a -> f a
+  alt :: forall a. f a -> f a -> f a
 ```
 
 The `Alt` type class identifies an associative operation on a type
@@ -24,6 +24,14 @@ types of kind `* -> *`, like `Array` or `List`, rather than concrete types
 
 For example, the `Array` (`[]`) type is an instance of `Alt`, where
 `(<|>)` is defined to be concatenation.
+
+#### `(<|>)`
+
+``` purescript
+(<|>) :: forall f a. (Alt f) => f a -> f a -> f a
+```
+
+An infix version of `alt`.
 
 
 
