@@ -16,6 +16,6 @@
     "package.json"
   ],
   "dependencies": {
-    "purescript-integers": "~0.2.0"
+    "purescript-prelude": "~0.1.0"
   }
 }
