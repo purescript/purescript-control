@@ -1,7 +1,4 @@
-# Module Documentation
-
 ## Module Control.Lazy
-
 
 This module defines the `Lazy` type class and associated
 helper functions.
@@ -28,6 +25,5 @@ fix :: forall l a. (Lazy l) => (l -> l) -> l
 `fix` defines a value as the fixed point of a function.
 
 The `Lazy` instance allows us to generate the result lazily.
-
 
 

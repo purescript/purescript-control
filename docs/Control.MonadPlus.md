@@ -1,14 +1,11 @@
-# Module Documentation
-
 ## Module Control.MonadPlus
-
 
 This module defines the `MonadPlus` type class.
 
 #### `MonadPlus`
 
 ``` purescript
-class (Monad m, Alternative m) <= MonadPlus m where
+class (Monad m, Alternative m) <= MonadPlus m
 ```
 
 The `MonadPlus` type class has no members of its own; it just specifies
@@ -41,6 +38,5 @@ factors n = do
   guard $ a * b == n
   return a
 ```
-
 
 

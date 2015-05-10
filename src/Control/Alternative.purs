@@ -16,4 +16,3 @@ import Control.Plus
 -- | - Distributivity: `(f <|> g) <*> x == (f <*> x) <|> (g <*> x)`
 -- | - Annihilation: `empty <*> f = empty`
 class (Applicative f, Plus f) <= Alternative f
-

@@ -1,7 +1,4 @@
-# Module Documentation
-
 ## Module Control.Alt
-
 
 This module defines the `Alt` type class.
 
@@ -32,6 +29,5 @@ For example, the `Array` (`[]`) type is an instance of `Alt`, where
 ```
 
 An infix version of `alt`.
-
 
 

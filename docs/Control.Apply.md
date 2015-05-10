@@ -1,7 +1,4 @@
-# Module Documentation
-
 ## Module Control.Apply
-
 
 This module defines helper functions for working with `Apply` instances.
 
@@ -56,6 +53,5 @@ lift5 :: forall a b c d e f g. (Apply f) => (a -> b -> c -> d -> e -> g) -> f a 
 
 Lift a function of five arguments to a function which accepts and returns
 values wrapped with the type constructor `f`.
-
 
 

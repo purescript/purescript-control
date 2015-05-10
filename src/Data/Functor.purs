@@ -1,6 +1,6 @@
 -- | This module defines helper functions for working with `Functor` instances.
 
-module Control.Functor where
+module Data.Functor where
 
 infixl 4 <$
 infixl 4 $>

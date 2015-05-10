@@ -1,7 +1,4 @@
-# Module Documentation
-
 ## Module Control.Extend
-
 
 This module defines the `Extend` type class and associated helper functions.
 
@@ -12,23 +9,21 @@ class (Functor w) <= Extend w where
   extend :: forall b a. (w a -> b) -> w a -> w b
 ```
 
+##### Instances
+``` purescript
+instance extendFn :: (Semigroup w) => Extend (Function w)
+```
+
 The `Extend` class defines the extension operator `(<<=)`
 which extends a local context-dependent computation to
 a global computation.
 
-`Extend` is the dual of `Bind`, and `(<<=)` is the dual of 
+`Extend` is the dual of `Bind`, and `(<<=)` is the dual of
 `(>>=)`.
 
 Laws:
 
 - Associativity: `extend f <<< extend g = extend (f <<< extend g)`
-
-#### `extendArr`
-
-``` purescript
-instance extendArr :: (Semigroup w) => Extend (Prim.Function w)
-```
-
 
 #### `(<<=)`
 
@@ -71,6 +66,5 @@ duplicate :: forall a w. (Extend w) => w a -> w (w a)
 Duplicate a comonadic context.
 
 `duplicate` is dual to `Control.Bind.join`.
-
 
 

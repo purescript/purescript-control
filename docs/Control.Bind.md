@@ -1,7 +1,4 @@
-# Module Documentation
-
 ## Module Control.Bind
-
 
 This module defines helper functions for working with `Bind` instances.
 
@@ -51,7 +48,7 @@ Collapse two applications of a monadic type constructor into one.
 ifM :: forall a m. (Bind m) => m Boolean -> m a -> m a -> m a
 ```
 
-Execute a monadic action if a condition holds. 
+Execute a monadic action if a condition holds.
 
 For example:
 
@@ -60,6 +57,5 @@ main = ifM ((< 0.5) <$> random)
          (trace "Heads")
          (trace "Tails")
 ```
-
 
 

@@ -17,7 +17,7 @@ bower install purescript-control
 ## Module documentation
 
 ### Functor/Applicative
-- [Control.Functor](docs/Control.Functor.md)
+- [Data.Functor](docs/Data.Functor.md)
 - [Control.Apply](docs/Control.Apply.md)
 
 ### Monad

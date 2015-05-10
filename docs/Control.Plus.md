@@ -1,7 +1,4 @@
-# Module Documentation
-
 ## Module Control.Plus
-
 
 This module defines the `Plus` type class.
 
@@ -24,6 +21,5 @@ kind `* -> *`, like `Array` or `List`, rather than concrete types like
 - Left identity: `empty <|> x == x`
 - Right identity: `x <|> empty == x`
 - Annihilation: `f <$> empty == empty`
-
 
 

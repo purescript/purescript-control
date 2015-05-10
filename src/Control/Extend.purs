@@ -11,7 +11,7 @@ infixr 1 =<=
 -- | which extends a local context-dependent computation to
 -- | a global computation.
 -- |
--- | `Extend` is the dual of `Bind`, and `(<<=)` is the dual of 
+-- | `Extend` is the dual of `Bind`, and `(<<=)` is the dual of
 -- | `(>>=)`.
 -- |
 -- | Laws:
@@ -20,7 +20,7 @@ infixr 1 =<=
 class (Functor w) <= Extend w where
   extend :: forall b a. (w a -> b) -> w a -> w b
 
-instance extendArr :: (Semigroup w) => Extend ((->) w) where
+instance extendFn :: (Semigroup w) => Extend ((->) w) where
   extend f g w = f \w' -> g (w <> w')
 
 -- | An infix version of `extend`

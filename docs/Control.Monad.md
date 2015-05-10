@@ -1,7 +1,4 @@
-# Module Documentation
-
 ## Module Control.Monad
-
 
 This module defines helper functions for working with `Monad` instances.
 
@@ -20,6 +17,5 @@ unless :: forall m. (Monad m) => Boolean -> m Unit -> m Unit
 ```
 
 Perform a monadic action unless a condition is true.
-
 
 

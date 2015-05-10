@@ -1,50 +1,54 @@
+/* jshint node: true */
 "use strict";
 
 var gulp = require("gulp");
+var jshint = require("gulp-jshint");
+var jscs = require("gulp-jscs");
 var plumber = require("gulp-plumber");
 var purescript = require("gulp-purescript");
-var jsvalidate = require("gulp-jsvalidate");
 
-var paths = [
+var sources = [
   "src/**/*.purs",
   "bower_components/purescript-*/src/**/*.purs"
 ];
 
-gulp.task("make", function() {
-  return gulp.src(paths)
+gulp.task("lint", function() {
+  return gulp.src("src/**/*.js")
+    .pipe(jshint())
+    .pipe(jshint.reporter())
+    .pipe(jscs());
+});
+
+gulp.task("make", ["lint"], function() {
+  return gulp.src(sources)
     .pipe(plumber())
     .pipe(purescript.pscMake());
 });
 
-gulp.task("jsvalidate", ["make"], function () {
-  return gulp.src("output/**/*.js")
+gulp.task("docs", function () {
+  return gulp.src(sources)
     .pipe(plumber())
-    .pipe(jsvalidate());
+    .pipe(purescript.pscDocs({
+      docgen: {
+        "Control.Alt": "docs/Control.Alt.md",
+        "Control.Alternative": "docs/Control.Alternative.md",
+        "Control.Apply": "docs/Control.Apply.md",
+        "Control.Bind": "docs/Control.Bind.md",
+        "Control.Comonad": "docs/Control.Comonad.md",
+        "Control.Extend": "docs/Control.Extend.md",
+        "Control.Lazy": "docs/Control.Lazy.md",
+        "Control.Monad": "docs/Control.Monad.md",
+        "Control.MonadPlus": "docs/Control.MonadPlus.md",
+        "Control.Plus": "docs/Control.Plus.md",
+        "Data.Functor": "docs/Data.Functor.md"
+      }
+    }));
 });
 
-var docTasks = [];
-
-var docTask = function(name) {
-  var taskName = "docs-" + name.toLowerCase();
-  gulp.task(taskName, function () {
-    return gulp.src("src/" + name.replace(/\./g, "/") + ".purs")
-      .pipe(plumber())
-      .pipe(purescript.pscDocs())
-      .pipe(gulp.dest("docs/" + name + ".md"));
-  });
-  docTasks.push(taskName);
-};
-
-["Control.Alt", "Control.Alternative", "Control.Apply", "Control.Bind",
- "Control.Comonad", "Control.Extend", "Control.Functor", "Control.Lazy",
- "Control.Monad", "Control.MonadPlus", "Control.Plus"].forEach(docTask);
-
-gulp.task("docs", docTasks);
-
 gulp.task("dotpsci", function () {
-  return gulp.src(paths)
+  return gulp.src(sources)
     .pipe(plumber())
     .pipe(purescript.dotPsci());
 });
 
-gulp.task("default", ["jsvalidate", "docs", "dotpsci"]);
+gulp.task("default", ["make", "docs", "dotpsci"]);

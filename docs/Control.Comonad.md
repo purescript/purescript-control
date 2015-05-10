@@ -1,7 +1,4 @@
-# Module Documentation
-
 ## Module Control.Comonad
-
 
 This module defines the `Comonad` type class.
 
@@ -22,6 +19,5 @@ Laws:
 
 - Left Identity: `extract <<= xs = xs`
 - Right Identity: `extract (f <<= xs) = f xs`
-
 
 
