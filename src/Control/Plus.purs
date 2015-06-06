@@ -20,3 +20,6 @@ import Control.Alt
 -- | - Annihilation: `f <$> empty == empty`
 class (Alt f) <= Plus f where
   empty :: forall a. f a
+
+instance plusArray :: Plus Array where
+  empty = []

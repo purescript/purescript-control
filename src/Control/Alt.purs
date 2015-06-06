@@ -24,3 +24,6 @@ infixl 3 <|>
 -- | An infix version of `alt`.
 (<|>) :: forall f a. (Alt f) => f a -> f a -> f a
 (<|>) = alt
+
+instance altArray :: Alt Array where
+  alt = append

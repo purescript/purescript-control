@@ -18,4 +18,9 @@ laws:
 - Distributivity: `(f <|> g) <*> x == (f <*> x) <|> (g <*> x)`
 - Annihilation: `empty <*> f = empty`
 
+##### Instances
+``` purescript
+instance alternativeArray :: Alternative Array
+```
+
 

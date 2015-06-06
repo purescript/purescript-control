@@ -22,4 +22,9 @@ kind `* -> *`, like `Array` or `List`, rather than concrete types like
 - Right identity: `x <|> empty == x`
 - Annihilation: `f <$> empty == empty`
 
+##### Instances
+``` purescript
+instance plusArray :: Plus Array
+```
+
 

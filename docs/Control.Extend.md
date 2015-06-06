@@ -9,11 +9,6 @@ class (Functor w) <= Extend w where
   extend :: forall b a. (w a -> b) -> w a -> w b
 ```
 
-##### Instances
-``` purescript
-instance extendFn :: (Semigroup w) => Extend (Function w)
-```
-
 The `Extend` class defines the extension operator `(<<=)`
 which extends a local context-dependent computation to
 a global computation.
@@ -24,6 +19,11 @@ a global computation.
 Laws:
 
 - Associativity: `extend f <<< extend g = extend (f <<< extend g)`
+
+##### Instances
+``` purescript
+instance extendFn :: (Semigroup w) => Extend (Function w)
+```
 
 #### `(<<=)`
 

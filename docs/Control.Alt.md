@@ -22,6 +22,11 @@ types of kind `* -> *`, like `Array` or `List`, rather than concrete types
 For example, the `Array` (`[]`) type is an instance of `Alt`, where
 `(<|>)` is defined to be concatenation.
 
+##### Instances
+``` purescript
+instance altArray :: Alt Array
+```
+
 #### `(<|>)`
 
 ``` purescript

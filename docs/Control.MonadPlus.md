@@ -17,6 +17,11 @@ laws:
 - Distributivity: `(x <|> y) >>= f == (x >>= f) <|> (y >>= f)`
 - Annihilation: `empty >>= f = empty`
 
+##### Instances
+``` purescript
+instance monadPlusArray :: MonadPlus Array
+```
+
 #### `guard`
 
 ``` purescript
