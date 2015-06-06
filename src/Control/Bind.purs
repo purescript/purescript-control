@@ -2,6 +2,8 @@
 
 module Control.Bind where
 
+import Prelude
+
 infixr 1 =<<
 infixr 1 >=>
 infixr 1 <=<

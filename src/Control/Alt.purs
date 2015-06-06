@@ -2,6 +2,8 @@
 
 module Control.Alt where
 
+import Prelude
+
 -- | The `Alt` type class identifies an associative operation on a type
 -- | constructor.  It is similar to `Semigroup`, except that it applies to
 -- | types of kind `* -> *`, like `Array` or `List`, rather than concrete types

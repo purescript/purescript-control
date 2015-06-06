@@ -2,6 +2,8 @@
 
 module Control.MonadPlus where
 
+import Prelude
+
 import Control.Alternative
 import Control.Plus
 
@@ -23,7 +25,7 @@ class (Monad m, Alternative m) <= MonadPlus m
 -- | ```purescript
 -- | import Data.Array
 -- | 
--- | factors :: Number -> [Number]
+-- | factors :: Number -> Array Number
 -- | factors n = do
 -- |   a <- 1 .. n
 -- |   b <- 1 .. a

@@ -2,6 +2,8 @@
 
 module Control.Extend where
 
+import Prelude
+
 infixl 1 =>>
 infixr 1 <<=
 infixr 1 =>=

@@ -2,6 +2,8 @@
 
 module Control.Plus where
 
+import Prelude
+
 import Control.Alt
 
 -- | The `Plus` type class extends the `Alt` type class with a value that

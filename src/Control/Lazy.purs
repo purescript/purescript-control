@@ -3,6 +3,8 @@
 
 module Control.Lazy where
 
+import Prelude
+
 -- | The `Lazy` class represents types which allow evaluation of values
 -- | to be _deferred_.
 -- |

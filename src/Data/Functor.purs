@@ -2,6 +2,8 @@
 
 module Data.Functor where
 
+import Prelude
+
 infixl 4 <$
 infixl 4 $>
 

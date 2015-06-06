@@ -2,6 +2,8 @@
 
 module Control.Apply where
 
+import Prelude
+
 infixl 4 <*
 infixl 4 *>
 

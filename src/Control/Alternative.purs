@@ -3,6 +3,8 @@
 
 module Control.Alternative where
 
+import Prelude
+
 import Control.Alt
 import Control.Lazy
 import Control.Plus

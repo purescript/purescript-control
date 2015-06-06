@@ -2,6 +2,8 @@
 
 module Control.Comonad where
 
+import Prelude
+
 import Control.Extend
 
 -- | `Comonad` extends the `Extend` class with the `extract` function

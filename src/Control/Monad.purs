@@ -2,6 +2,8 @@
 
 module Control.Monad where
 
+import Prelude
+
 -- | Perform a monadic action when a condition is true.
 when :: forall m. (Monad m) => Boolean -> m Unit -> m Unit
 when true m = m
