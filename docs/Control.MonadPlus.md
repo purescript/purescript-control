@@ -31,7 +31,7 @@ For example:
 ```purescript
 import Data.Array
 
-factors :: Number -> [Number]
+factors :: Number -> Array Number
 factors n = do
   a <- 1 .. n
   b <- 1 .. a

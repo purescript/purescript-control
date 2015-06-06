@@ -10,10 +10,14 @@ var sources = [
   "bower_components/purescript-*/src/**/*.purs"
 ];
 
+var foreigns = [
+  "bower_components/purescript-*/src/**/*.js"
+];
+
 gulp.task("make", function() {
   return gulp.src(sources)
     .pipe(plumber())
-    .pipe(purescript.pscMake());
+    .pipe(purescript.pscMake({ ffi: foreigns }));
 });
 
 gulp.task("docs", function () {
