@@ -33,6 +33,8 @@ instance altArray :: Alt Array
 (<|>) :: forall f a. (Alt f) => f a -> f a -> f a
 ```
 
+_left-associative / precedence 3_
+
 An infix version of `alt`.
 
 

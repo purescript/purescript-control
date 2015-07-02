@@ -31,6 +31,8 @@ instance extendFn :: (Semigroup w) => Extend (Function w)
 (<<=) :: forall w a b. (Extend w) => (w a -> b) -> w a -> w b
 ```
 
+_right-associative / precedence 1_
+
 An infix version of `extend`
 
 #### `(=>>)`
@@ -38,6 +40,8 @@ An infix version of `extend`
 ``` purescript
 (=>>) :: forall b a w. (Extend w) => w a -> (w a -> b) -> w b
 ```
+
+_left-associative / precedence 1_
 
 A version of `(<<=)` with its arguments flipped.
 
@@ -47,6 +51,8 @@ A version of `(<<=)` with its arguments flipped.
 (=>=) :: forall b a w c. (Extend w) => (w a -> b) -> (w b -> c) -> w a -> c
 ```
 
+_right-associative / precedence 1_
+
 Forwards co-Kleisli composition.
 
 #### `(=<=)`
@@ -54,6 +60,8 @@ Forwards co-Kleisli composition.
 ``` purescript
 (=<=) :: forall b a w c. (Extend w) => (w b -> c) -> (w a -> b) -> w a -> c
 ```
+
+_right-associative / precedence 1_
 
 Backwards co-Kleisli composition.
 

@@ -8,6 +8,8 @@ This module defines helper functions for working with `Apply` instances.
 (<*) :: forall a b f. (Apply f) => f a -> f b -> f a
 ```
 
+_left-associative / precedence 4_
+
 Combine two effectful actions, keeping only the result of the first.
 
 #### `(*>)`
@@ -15,6 +17,8 @@ Combine two effectful actions, keeping only the result of the first.
 ``` purescript
 (*>) :: forall a b f. (Apply f) => f a -> f b -> f b
 ```
+
+_left-associative / precedence 4_
 
 Combine two effectful actions, keeping only the result of the second.
 
