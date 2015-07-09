@@ -2,13 +2,6 @@
   "name": "purescript-control",
   "homepage": "https://github.com/purescript/purescript-control",
   "description": "Common control classes and utility functions",
-  "keywords": [
-    "purescript",
-    "functor",
-    "applicative",
-    "monad",
-    "comonad"
-  ],
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -21,10 +14,9 @@
     "output",
     "test",
     "bower.json",
-    "gulpfile.js",
     "package.json"
   ],
   "dependencies": {
-    "purescript-prelude": "^0.1.0"
+    "purescript-prelude": "^1.0.0-rc.1"
   }
 }

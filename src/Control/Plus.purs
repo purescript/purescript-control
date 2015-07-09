@@ -1,10 +1,12 @@
--- | This module defines the `Plus` type class.
+module Control.Plus
+  ( class Plus, empty
+  , module Control.Alt
+  , module Data.Functor
+  ) where
 
-module Control.Plus where
+import Control.Alt (class Alt, alt, (<|>))
 
-import Prelude
-
-import Control.Alt
+import Data.Functor (class Functor, map, void, ($>), (<#>), (<$), (<$>))
 
 -- | The `Plus` type class extends the `Alt` type class with a value that
 -- | should be the left and right identity for `(<|>)`.
@@ -18,7 +20,7 @@ import Control.Alt
 -- | - Left identity: `empty <|> x == x`
 -- | - Right identity: `x <|> empty == x`
 -- | - Annihilation: `f <$> empty == empty`
-class (Alt f) <= Plus f where
+class Alt f <= Plus f where
   empty :: forall a. f a
 
 instance plusArray :: Plus Array where
