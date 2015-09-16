@@ -16,5 +16,5 @@ class Lazy l where
 -- | `fix` defines a value as the fixed point of a function.
 -- |
 -- | The `Lazy` instance allows us to generate the result lazily.
-fix :: forall l a. (Lazy l) => (l -> l) -> l
+fix :: forall l. (Lazy l) => (l -> l) -> l
 fix f = defer (\_ -> f (fix f))
