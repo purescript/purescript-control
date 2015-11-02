@@ -5,9 +5,7 @@ module Control.Alternative where
 
 import Prelude
 
-import Control.Alt
-import Control.Lazy
-import Control.Plus
+import Control.Plus (Plus)
 
 -- | The `Alternative` type class has no members of its own; it just specifies
 -- | that the type constructor has both `Applicative` and `Plus` instances.
