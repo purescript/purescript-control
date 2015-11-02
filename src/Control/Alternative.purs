@@ -1,7 +1,11 @@
 -- | This module defines the `Alternative` type class and associated
 -- | helper functions.
 
-module Control.Alternative where
+module Control.Alternative
+  ( module Control.Alternative
+  , module Control.Alt
+  , module Control.Plus
+  ) where
 
 import Prelude
 

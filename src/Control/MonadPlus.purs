@@ -1,11 +1,13 @@
 -- | This module defines the `MonadPlus` type class.
 
-module Control.MonadPlus where
+module Control.MonadPlus
+  ( module Control.MonadPlus
+  , module Control.Alternative
+  ) where
 
 import Prelude
 
 import Control.Alternative
-import Control.Plus
 
 -- | The `MonadPlus` type class has no members of its own; it just specifies
 -- | that the type has both `Monad` and `Alternative` instances.
