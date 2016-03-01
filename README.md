@@ -14,27 +14,8 @@ bower install purescript-control
 
 ## Class hierarchy
 
-![Class diagram](docs/class-diagram.png)
+![Class diagram](class-diagram.png)
 
-## Module documentation
+## Documentation
 
-### Functor/Applicative
-- [Data.Functor](docs/Data/Functor.md)
-- [Control.Apply](docs/Control/Apply.md)
-
-### Monad
-- [Control.Bind](docs/Control/Bind.md)
-- [Control.Monad](docs/Control/Monad.md)
-
-### Alternative/MonadPlus
-- [Control.Alt](docs/Control/Alt.md)
-- [Control.Plus](docs/Control/Plus.md)
-- [Control.Alternative](docs/Control/Alternative.md)
-- [Control.MonadPlus](docs/Control/MonadPlus.md)
-
-### Comonads
-- [Control.Extend](docs/Control/Extend.md)
-- [Control.Comonad](docs/Control/Comonad.md)
-
-### Lazy
-- [Control.Lazy](docs/Control/Lazy.md)
+Module documentation is [published on Pursuit](http://pursuit.purescript.org/packages/purescript-control).

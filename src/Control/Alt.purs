@@ -1,8 +1,10 @@
--- | This module defines the `Alt` type class.
+module Control.Alt
+  ( class Alt, alt, (<|>)
+  , module Data.Functor
+  ) where
 
-module Control.Alt where
-
-import Prelude
+import Data.Functor (class Functor, map, void, ($>), (<#>), (<$), (<$>))
+import Data.Semigroup (append)
 
 -- | The `Alt` type class identifies an associative operation on a type
 -- | constructor.  It is similar to `Semigroup`, except that it applies to
@@ -16,14 +18,10 @@ import Prelude
 -- |
 -- | For example, the `Array` (`[]`) type is an instance of `Alt`, where
 -- | `(<|>)` is defined to be concatenation.
-class (Functor f) <= Alt f where
+class Functor f <= Alt f where
   alt :: forall a. f a -> f a -> f a
 
-infixl 3 <|>
-
--- | An infix version of `alt`.
-(<|>) :: forall f a. (Alt f) => f a -> f a -> f a
-(<|>) = alt
+infixl 3 alt as <|>
 
 instance altArray :: Alt Array where
   alt = append
