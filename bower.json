@@ -17,6 +17,6 @@
     "package.json"
   ],
   "dependencies": {
-    "purescript-prelude": "^1.0.0-rc.1"
+    "purescript-prelude": "^1.0.0-rc.4"
   }
 }

@@ -21,7 +21,6 @@ import Control.MonadZero (class MonadZero, guard)
 import Control.Plus (class Plus, empty)
 
 import Data.Functor (class Functor, map, void, ($>), (<#>), (<$), (<$>))
-import Data.Unit (Unit, unit)
 
 -- | The `MonadPlus` type class has no members of its own but extends
 -- | `MonadZero` with an additional law:
