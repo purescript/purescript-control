@@ -41,13 +41,17 @@ instance monadZeroArray :: MonadZero Array
 -- | ```purescript
 -- | import Data.Array
 -- |
--- | factors :: Number -> Array Number
+-- | factors :: Int -> Array Int
 -- | factors n = do
--- |   a <- 1 .. n
--- |   b <- 1 .. a
+-- |   a <- 1..n
+-- |   b <- a..n
 -- |   guard $ a * b == n
--- |   pure a
+-- |   pure [a, b]
 -- | ```
+-- | In this example, a step of the array comprehension will fail with
+-- | `empty` (`[]` in the case of Array) if `a * b != n`. Otherwise, 
+-- | `guard` will return an array with one value (Unit) and the step will proceed,
+-- | returning `[[a, b]]`.
 guard :: forall m. MonadZero m => Boolean -> m Unit
 guard true = pure unit
 guard false = empty
