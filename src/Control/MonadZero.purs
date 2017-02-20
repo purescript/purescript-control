@@ -39,7 +39,10 @@ instance monadZeroArray :: MonadZero Array
 -- | For example:
 -- |
 -- | ```purescript
--- | import Data.Array
+-- | import Prelude
+-- | import Control.Monad (bind)
+-- | import Control.MonadZero (guard)
+-- | import Data.Array ((..))
 -- |
 -- | factors :: Int -> Array Int
 -- | factors n = do
