@@ -39,14 +39,17 @@ instance monadZeroArray :: MonadZero Array
 -- | For example:
 -- |
 -- | ```purescript
--- | import Data.Array
+-- | import Prelude
+-- | import Control.Monad (bind)
+-- | import Control.MonadZero (guard)
+-- | import Data.Array ((..))
 -- |
--- | factors :: Number -> Array Number
+-- | factors :: Int -> Array Int
 -- | factors n = do
--- |   a <- 1 .. n
--- |   b <- 1 .. a
+-- |   a <- 1..n
+-- |   b <- a..n
 -- |   guard $ a * b == n
--- |   pure a
+-- |   pure [a, b]
 -- | ```
 guard :: forall m. MonadZero m => Boolean -> m Unit
 guard true = pure unit
