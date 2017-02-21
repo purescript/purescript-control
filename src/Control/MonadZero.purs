@@ -51,10 +51,6 @@ instance monadZeroArray :: MonadZero Array
 -- |   guard $ a * b == n
 -- |   pure [a, b]
 -- | ```
--- | In this example, a step of the array comprehension will fail with
--- | `empty` (`[]` in the case of Array) if `a * b != n`. Otherwise, 
--- | `guard` will return an array with one value (Unit) and the step will proceed,
--- | returning `[[a, b]]`.
 guard :: forall m. MonadZero m => Boolean -> m Unit
 guard true = pure unit
 guard false = empty
