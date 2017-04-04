@@ -5,13 +5,13 @@ import Control.Monad.Eff (Eff)
 import Control.Lazy (fix)
 import Data.Unit (Unit, unit)
 
-foo :: Unit -> Unit
+foo :: forall a. a -> Unit
 foo _ = unit
 
-foofoo :: (Unit -> Unit) -> (Unit -> Unit)
+foofoo :: forall a b. a -> (b -> Unit)
 foofoo _ = foo
 
-foo' :: Unit -> Unit
+foo' :: forall a. a -> Unit
 foo' = fix foofoo
 
 -- the idea here is that foo and foo' are the same function
