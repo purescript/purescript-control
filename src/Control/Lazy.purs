@@ -11,7 +11,7 @@ class Lazy l where
   defer :: (Unit -> l) -> l
 
 instance lazyFn :: Lazy (a -> b) where
-  defer f = f unit
+  defer f = \x -> f unit x
 
 -- | `fix` defines a value as the fixed point of a function.
 -- |
