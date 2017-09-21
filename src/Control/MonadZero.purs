@@ -47,9 +47,9 @@ instance monadZeroArray :: MonadZero Array
 -- | factors :: Int -> Array Int
 -- | factors n = do
 -- |   a <- 1..n
--- |   b <- a..n
+-- |   b <- 1..n
 -- |   guard $ a * b == n
--- |   pure [a, b]
+-- |   pure a
 -- | ```
 guard :: forall m. MonadZero m => Boolean -> m Unit
 guard true = pure unit
