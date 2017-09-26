@@ -1,5 +1,8 @@
 module Control.Lazy where
 
+import Prelude
+
+import Data.Tuple (Tuple(..), fst, snd)
 import Data.Unit (Unit, unit)
 
 -- | The `Lazy` class represents types which allow evaluation of values
@@ -15,6 +18,9 @@ instance lazyFn :: Lazy (a -> b) where
 
 instance lazyUnit :: Lazy Unit where
   defer _ = unit
+  
+instance lazyTuple :: (Lazy a, Lazy b) => Lazy (Tuple a b) where
+  defer f = Tuple (defer (fst <<< f)) (defer (snd <<< f))
 
 -- | `fix` defines a value as the fixed point of a function.
 -- |
