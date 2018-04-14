@@ -1,9 +1,9 @@
 module Test.Main (main) where
 
-import Control.Monad.Eff (Eff)
+import Effect (Effect)
 import Data.Unit (Unit)
 
 import Test.Control.Lazy (testLazy)
 
-main :: Eff () Unit
+main :: Effect Unit
 main = testLazy

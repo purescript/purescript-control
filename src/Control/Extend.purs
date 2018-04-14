@@ -6,7 +6,7 @@ module Control.Extend
   , module Data.Functor
   ) where
 
-import Control.Category (id)
+import Control.Category (identity)
 
 import Data.Functor (class Functor, map, void, ($>), (<#>), (<$), (<$>))
 import Data.Semigroup (class Semigroup, (<>))
@@ -56,4 +56,4 @@ infixr 1 composeCoKleisliFlipped as =<=
 -- |
 -- | `duplicate` is dual to `Control.Bind.join`.
 duplicate :: forall a w. Extend w => w a -> w (w a)
-duplicate = extend id
+duplicate = extend identity

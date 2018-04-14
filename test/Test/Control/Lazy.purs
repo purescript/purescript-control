@@ -1,9 +1,9 @@
 module Test.Control.Lazy (testLazy) where
 
 import Control.Applicative (pure)
-import Control.Monad.Eff (Eff)
 import Control.Lazy (fix)
 import Data.Unit (Unit, unit)
+import Effect (Effect)
 
 foo :: forall a. a -> Unit
 foo _ = unit
@@ -15,5 +15,5 @@ foo' :: forall a. a -> Unit
 foo' = fix foofoo
 
 -- the idea here is that foo and foo' are the same function
-testLazy :: Eff () Unit
+testLazy :: Effect Unit
 testLazy = pure (foo' unit)

@@ -17,9 +17,9 @@
     "package.json"
   ],
   "dependencies": {
-    "purescript-prelude": "^3.0.0"
+    "purescript-prelude": "purescript/purescript-prelude#compiler/0.12"
   },
   "devDependencies": {
-    "purescript-eff": "^3.1.0"
+    "purescript-effect": "purescript/purescript-effect#compiler/0.12"
   }
 }
