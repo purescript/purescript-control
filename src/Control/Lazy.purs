@@ -20,4 +20,6 @@ instance lazyUnit :: Lazy Unit where
 -- |
 -- | The `Lazy` instance allows us to generate the result lazily.
 fix :: forall l. Lazy l => (l -> l) -> l
-fix f = defer (\_ -> f (fix f))
+fix f = go
+  where
+    go = defer \_ -> f go
