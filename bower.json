@@ -1,8 +1,7 @@
 {
   "name": "purescript-control",
   "homepage": "https://github.com/purescript/purescript-control",
-  "description": "Common control classes and utility functions",
-  "license": "MIT",
+  "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
     "url": "git://github.com/purescript/purescript-control.git"
@@ -17,9 +16,9 @@
     "package.json"
   ],
   "dependencies": {
-    "purescript-prelude": "purescript/purescript-prelude#compiler/0.12"
+    "purescript-prelude": "^4.0.0"
   },
   "devDependencies": {
-    "purescript-effect": "purescript/purescript-effect#compiler/0.12"
+    "purescript-effect": "^2.0.0"
   }
 }
