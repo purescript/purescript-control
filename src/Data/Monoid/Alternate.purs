@@ -5,6 +5,7 @@ import Prelude
 import Control.Alternative (class Alt, class Plus, class Alternative, empty, (<|>))
 import Control.Comonad (class Comonad, class Extend)
 import Data.Eq (class Eq1)
+import Data.Newtype (class Newtype)
 import Data.Ord (class Ord1)
 
 -- | Monoid and semigroup instances corresponding to `Plus` and `Alt` instances
@@ -15,6 +16,8 @@ import Data.Ord (class Ord1)
 -- | mempty :: Alternate _ == Alternate empty
 -- | ```
 newtype Alternate f a = Alternate (f a)
+
+derive instance newtypeAlternate :: Newtype (Alternate f a) _
 
 derive newtype instance eqAlternate :: Eq (f a) => Eq (Alternate f a)
 
