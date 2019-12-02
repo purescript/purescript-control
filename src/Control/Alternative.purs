@@ -15,13 +15,14 @@ import Control.Plus (class Plus, empty)
 import Data.Functor (class Functor, map, void, ($>), (<#>), (<$), (<$>))
 
 -- | The `Alternative` type class has no members of its own; it just specifies
--- | that the type constructor has both `Applicative` and `Plus` instances.
+-- | that the type constructor has both `Apply` and `Plus` instances that interact
+-- | appropriately.
 -- |
 -- | Types which have `Alternative` instances should also satisfy the following
 -- | laws:
 -- |
 -- | - Distributivity: `(f <|> g) <*> x == (f <*> x) <|> (g <*> x)`
 -- | - Annihilation: `empty <*> f = empty`
-class (Applicative f, Plus f) <= Alternative f
+class (Apply f, Plus f) <= Alternative f
 
 instance alternativeArray :: Alternative Array
