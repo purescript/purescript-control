@@ -15,6 +15,7 @@ import Data.Ord (class Ord1)
 -- | Alternate fx <> Alternate fy == Alternate (fx <|> fy)
 -- | mempty :: Alternate _ == Alternate empty
 -- | ```
+newtype Alternate :: forall k. (k -> Type) -> k -> Type
 newtype Alternate f a = Alternate (f a)
 
 derive instance newtypeAlternate :: Newtype (Alternate f a) _
