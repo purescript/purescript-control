@@ -12,20 +12,23 @@ module Control.MonadPlus
   ) where
 
 import Control.Alt (class Alt, alt, (<|>))
-import Control.Alternative (class Alternative)
+import Control.Alternative (class Alternative, guard)
 import Control.Applicative (class Applicative, pure, liftA1, unless, when)
 import Control.Apply (class Apply, apply, (*>), (<*), (<*>))
 import Control.Bind (class Bind, bind, ifM, join, (<=<), (=<<), (>=>), (>>=))
 import Control.Monad (class Monad, ap, liftM1)
-import Control.MonadZero (class MonadZero, guard)
+import Control.MonadZero (class MonadZero)
 import Control.Plus (class Plus, empty)
 
 import Data.Functor (class Functor, map, void, ($>), (<#>), (<$), (<$>))
 
--- | The `MonadPlus` type class has no members of its own but extends
--- | `MonadZero` with an additional law:
+-- | The `MonadPlus` type class has no members of its own; it just specifies
+-- | that the type has both `Monad` and `Alternative` instances.
+-- |
+-- | Types which have `MonadPlus` instances should also satisfy the following
+-- | law:
 -- |
 -- | - Distributivity: `(x <|> y) >>= f == (x >>= f) <|> (y >>= f)`
-class MonadZero m <= MonadPlus m
+class (Monad m, Alternative m) <= MonadPlus m
 
 instance monadPlusArray :: MonadPlus Array
