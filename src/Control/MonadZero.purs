@@ -39,4 +39,4 @@ import Prim.TypeError (class Warn, Text)
 -- | laws:
 -- |
 -- | - Annihilation: `empty >>= f = empty`
-class (Monad m, Alternative m, Warn (Text "'MonadZero' is deprecated")) <= MonadZero m
+class (Monad m, Alternative m, Warn (Text "'MonadZero' is deprecated, use 'Monad' and 'Alternative' constraints instead")) <= MonadZero m
