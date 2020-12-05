@@ -41,4 +41,4 @@ import Prim.TypeError (class Warn, Text)
 -- | - Annihilation: `empty >>= f = empty`
 class (Monad m, Alternative m, Warn (Text "'MonadZero' is deprecated, use 'Monad' and 'Alternative' constraints instead")) <= MonadZero m
 
-instance monadZeroArray :: Warn (Text "`Array`'s 'MonadZero' is deprecated, use 'Monad' and 'Alternative' constraints instead")) => MonadZero Array
+instance monadZeroArray :: MonadZero Array
