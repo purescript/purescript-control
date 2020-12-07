@@ -9,7 +9,7 @@
 -- | Use `Monad` and `Alternative` constraints instead.
 
 module Control.MonadZero
-  ( class Deprecated
+  ( class DeprecatedMonadZero
   , class MonadZero
   , module Control.Alt
   , module Control.Alternative
@@ -33,8 +33,8 @@ import Data.Functor (class Functor, map, void, ($>), (<#>), (<$), (<$>))
 
 import Prim.TypeError (class Warn, Text)
 
-class Deprecated
-instance deprecated :: Warn (Text "'MonadZero' is deprecated, use 'Monad' and 'Alternative' constraints instead") => Deprecated
+class DeprecatedMonadZero
+instance deprecatedMonadZero :: Warn (Text "'MonadZero' is deprecated, use 'Monad' and 'Alternative' constraints instead") => DeprecatedMonadZero
 
 -- | The `MonadZero` type class has no members of its own; it just specifies
 -- | that the type has both `Monad` and `Alternative` instances.
@@ -43,6 +43,6 @@ instance deprecated :: Warn (Text "'MonadZero' is deprecated, use 'Monad' and 'A
 -- | laws:
 -- |
 -- | - Annihilation: `empty >>= f = empty`
-class (Monad m, Alternative m, Deprecated) <= MonadZero m
+class (Monad m, Alternative m, DeprecatedMonadZero) <= MonadZero m
 
 instance monadZeroArray :: MonadZero Array
