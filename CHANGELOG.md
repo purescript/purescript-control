@@ -5,8 +5,8 @@ Notable changes to this project are documented in this file. The format is based
 ## [Unreleased]
 
 Breaking changes:
-  - Updated code for PureScript 0.14 (#61)
-  - Deprecated `MonadZero` (#64 #66 #68 #70)
+  - Added support for PureScript 0.14 and dropped support for all previous versions (#61)
+  - Deprecated `MonadZero` (#64, #66, #68, #70)
 
 New features:
 
@@ -14,8 +14,8 @@ Bugfixes:
 
 Other improvements:
   - Migrated CI to GitHub Actions and updated installation instructions to use Spago (#65)
-  - Added a CHANGELOG.md file and pull request template (#72 #73)
-  - Added examples for alt (#58) 
+  - Added a CHANGELOG.md file and pull request template (#72, #73)
+  - Added examples for `Alt` (#58) 
 
 ## [v4.2.0](https://github.com/purescript/purescript-control/releases/tag/v4.2.0) - 2019-09-05
 
