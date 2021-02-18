@@ -16,10 +16,10 @@
     "package.json"
   ],
   "dependencies": {
-    "purescript-prelude": "master",
-    "purescript-newtype": "master"
+    "purescript-newtype": "^4.0.0",
+    "purescript-prelude": "^5.0.0"
   },
   "devDependencies": {
-    "purescript-effect": "master"
+    "purescript-effect": "^3.0.0"
   }
 }
