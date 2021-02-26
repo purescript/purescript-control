@@ -5,6 +5,16 @@ Notable changes to this project are documented in this file. The format is based
 ## [Unreleased]
 
 Breaking changes:
+
+New features:
+
+Bugfixes:
+
+Other improvements:
+
+## [v5.0.0](https://github.com/purescript/purescript-control/releases/tag/v5.0.0) - 2021-02-26
+
+Breaking changes:
   - Added support for PureScript 0.14 and dropped support for all previous versions (#61)
   - Deprecated `MonadZero` (#64, #66, #68, #70)
 
