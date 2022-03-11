@@ -1,5 +1,3 @@
-"use strict";
-
 export const arrayExtend = function(f) {
   return function(xs) {
     return xs.map(function (_, i, xs) {
