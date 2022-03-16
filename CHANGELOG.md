@@ -5,6 +5,7 @@ Notable changes to this project are documented in this file. The format is based
 ## [Unreleased]
 
 Breaking changes:
+- Drop deprecated `MonadZero` instance (#76 by @JordanMartinez)
 
 New features:
 
