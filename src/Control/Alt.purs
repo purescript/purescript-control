@@ -36,7 +36,7 @@ import Data.Semigroup (append)
 class Functor f <= Alt f where
   alt :: forall a. f a -> f a -> f a
 
-infixl 3 alt as <|>
+infixr 3 alt as <|>
 
 instance altArray :: Alt Array where
   alt = append

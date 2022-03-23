@@ -7,6 +7,7 @@ Notable changes to this project are documented in this file. The format is based
 Breaking changes:
 - Migrate FFI to ES modules (#78 by @kl0tl and @JordanMartinez)
 - Drop deprecated `MonadZero` instance (#76 by @JordanMartinez)
+- Make `<|>` right associative (#80 by @JordanMartinez)
 
 New features:
 
