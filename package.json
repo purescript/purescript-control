@@ -1,7 +1,7 @@
 {
   "private": true,
-  "license": "BSD-3-Clause",
   "homepage": "https://github.com/purescript/purescript-control",
+  "license": "BSD-3-Clause",
   "repository": "github:purescript/purescript-control",
   "scripts": {
     "build": "spago build",

@@ -1,11 +1,11 @@
 module Control.Plus
-  ( class Plus, empty
+  ( class Plus
+  , empty
   , module Control.Alt
   , module Data.Functor
   ) where
 
 import Control.Alt (class Alt, alt, (<|>))
-
 import Data.Functor (class Functor, map, void, ($>), (<#>), (<$), (<$>))
 
 -- | The `Plus` type class extends the `Alt` type class with a value that

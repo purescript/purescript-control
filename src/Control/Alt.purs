@@ -1,5 +1,7 @@
 module Control.Alt
-  ( class Alt, alt, (<|>)
+  ( class Alt
+  , alt
+  , (<|>)
   , module Data.Functor
   ) where
 
