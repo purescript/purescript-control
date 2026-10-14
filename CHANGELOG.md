@@ -12,6 +12,8 @@ Bugfixes:
 
 Other improvements:
 
+- Migrate from Bower/Pulp to Spago and update CI, linting, and formatting.
+
 ## [v6.0.0](https://github.com/purescript/purescript-control/releases/tag/v6.0.0) - 2022-04-27
 
 Breaking changes:
@@ -146,6 +148,5 @@ Update docs (@hdgarrood)
 - Now uses "proper" `Unit` type instead of `{}` (garyb)
 
 ## [v0.1.0](https://github.com/purescript/purescript-control/releases/tag/v0.1.0) - 2014-04-25
-
 
 

@@ -1,0 +1,16 @@
+package:
+  name: control
+  description: Utility functions and classes for Functor, Applicative, and Monad hierarchies
+  build:
+    strict: true
+    pedanticPackages: true
+  test:
+    main: Test.Main
+    strict: true
+    pedanticPackages: true
+    dependencies:
+      - effect: ">=4.0.0 <5.0.0"
+  dependencies:
+    - newtype: ">=5.0.0 <6.0.0"
+    - prelude: ">=6.0.0 <7.0.0"
+workspace: {}
