@@ -28,7 +28,7 @@ import Data.Semigroup (append)
 -- |
 -- | ```purescript
 -- | import Control.Alt ((<|>))
--- | import Data.Maybe (Maybe(..)
+-- | import Data.Maybe (Maybe(..))
 -- | import Data.Either (Either(..))
 -- |
 -- | Nothing <|> Just 1 <|> Just 2 == Just 1
