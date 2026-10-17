@@ -2,7 +2,7 @@ module Data.Monoid.Alternate where
 
 import Prelude
 
-import Control.Alternative (class Alt, class Plus, class Alternative, empty, (<|>))
+import Control.Alternative (class Alt, class Alternative, class Plus, empty, (<|>))
 import Control.Comonad (class Comonad, class Extend)
 import Data.Eq (class Eq1)
 import Data.Newtype (class Newtype)

@@ -2,7 +2,7 @@
 
 Notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [Unreleased](https://github.com/purescript/purescript-control/compare/v6.0.1...HEAD)
 
 Breaking changes:
 
@@ -12,9 +12,22 @@ Bugfixes:
 
 Other improvements:
 
+## [v6.0.1](https://github.com/purescript/purescript-control/releases/tag/v6.0.1) - 2026-10-17
+
+Breaking changes:
+
+New features:
+
+Bugfixes:
+
+Other improvements:
+
+- Migrate from Bower/Pulp to Spago and update CI, linting, and formatting (#84 by @thomashoneyman)
+
 ## [v6.0.0](https://github.com/purescript/purescript-control/releases/tag/v6.0.0) - 2022-04-27
 
 Breaking changes:
+
 - Migrate FFI to ES modules (#78 by @kl0tl and @JordanMartinez)
 - Drop deprecated `MonadZero` instance (#76 by @JordanMartinez)
 - Make `<|>` right associative (#80 by @JordanMartinez)
@@ -28,17 +41,19 @@ Other improvements:
 ## [v5.0.0](https://github.com/purescript/purescript-control/releases/tag/v5.0.0) - 2021-02-26
 
 Breaking changes:
-  - Added support for PureScript 0.14 and dropped support for all previous versions (#61)
-  - Deprecated `MonadZero` (#64, #66, #68, #70)
+
+- Added support for PureScript 0.14 and dropped support for all previous versions (#61)
+- Deprecated `MonadZero` (#64, #66, #68, #70)
 
 New features:
 
 Bugfixes:
 
 Other improvements:
-  - Migrated CI to GitHub Actions and updated installation instructions to use Spago (#65)
-  - Added a CHANGELOG.md file and pull request template (#72, #73)
-  - Added examples for `Alt` (#58) 
+
+- Migrated CI to GitHub Actions and updated installation instructions to use Spago (#65)
+- Added a CHANGELOG.md file and pull request template (#72, #73)
+- Added examples for `Alt` (#58)
 
 ## [v4.2.0](https://github.com/purescript/purescript-control/releases/tag/v4.2.0) - 2019-09-05
 
@@ -50,7 +65,7 @@ Added `Newtype` instance for `Alternate` (@masaeedu)
 
 ## [v4.0.0](https://github.com/purescript/purescript-control/releases/tag/v4.0.0) - 2018-05-22
 
-- Updated for PureScript 0.12 
+- Updated for PureScript 0.12
 - The definition of `fix` was fixed to allow sharing
 
 ## [v3.3.1](https://github.com/purescript/purescript-control/releases/tag/v3.3.1) - 2017-09-21
@@ -146,6 +161,3 @@ Update docs (@hdgarrood)
 - Now uses "proper" `Unit` type instead of `{}` (garyb)
 
 ## [v0.1.0](https://github.com/purescript/purescript-control/releases/tag/v0.1.0) - 2014-04-25
-
-
-

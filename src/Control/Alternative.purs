@@ -9,12 +9,11 @@ module Control.Alternative
   ) where
 
 import Control.Alt (class Alt, alt, (<|>))
-import Control.Applicative (class Applicative, pure, liftA1, unless, when)
+import Control.Applicative (class Applicative, liftA1, pure, unless, when)
 import Control.Apply (class Apply, apply, (*>), (<*), (<*>))
 import Control.Plus (class Plus, empty)
-
-import Data.Unit (Unit, unit)
 import Data.Functor (class Functor, map, void, ($>), (<#>), (<$), (<$>))
+import Data.Unit (Unit, unit)
 
 -- | The `Alternative` type class has no members of its own; it just specifies
 -- | that the type constructor has both `Applicative` and `Plus` instances.

@@ -22,4 +22,4 @@ instance lazyUnit :: Lazy Unit where
 fix :: forall l. Lazy l => (l -> l) -> l
 fix f = go
   where
-    go = defer \_ -> f go
+  go = defer \_ -> f go
