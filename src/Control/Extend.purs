@@ -1,13 +1,18 @@
 module Control.Extend
-  ( class Extend, extend, (<<=), extendFlipped, (=>>)
-  , composeCoKleisli, (=>=)
-  , composeCoKleisliFlipped, (=<=)
+  ( class Extend
+  , extend
+  , (<<=)
+  , extendFlipped
+  , (=>>)
+  , composeCoKleisli
+  , (=>=)
+  , composeCoKleisliFlipped
+  , (=<=)
   , duplicate
   , module Data.Functor
   ) where
 
 import Control.Category (identity)
-
 import Data.Functor (class Functor, map, void, ($>), (<#>), (<$), (<$>))
 import Data.Semigroup (class Semigroup, (<>))
 

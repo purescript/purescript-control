@@ -1,11 +1,11 @@
 module Control.Comonad
-  ( class Comonad, extract
+  ( class Comonad
+  , extract
   , module Control.Extend
   , module Data.Functor
   ) where
 
 import Control.Extend (class Extend, duplicate, extend, (<<=), (=<=), (=>=), (=>>))
-
 import Data.Functor (class Functor, map, void, ($>), (<#>), (<$), (<$>))
 
 -- | `Comonad` extends the `Extend` class with the `extract` function
